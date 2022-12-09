@@ -9,5 +9,5 @@ Gathering the needed information will significantly improve caring after your fa
 
 ### UI idea of home and pot pages:
 
-*photo*
+*photo* \
 *photo*
