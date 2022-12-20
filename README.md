@@ -6,13 +6,16 @@ Spring boot application API for personal scheduling over garden pots. After plan
 
 Gathering the needed information will significantly improve caring after your favourite plant
 
+### Pattern of project structure creation :
+
+* Entities -> Repository -> Service -> ServiceImplementation -> Controller
 
 ### UI of homepage
 
 ![crop-integration.png](images%2Fcrop-integration.png)
 You will have the ability to inspect, integrate, delete, update crops
 
-### MySQL database structure
+### MySQL database structure 
 
 ![database-structure.PNG](images%2Fdatabase-structure.PNG)
 Table "crops" is the main one. Controls or is controlled by other tables like "personal_observations" and "harvesting".
