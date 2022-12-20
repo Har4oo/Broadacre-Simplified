@@ -9,7 +9,7 @@ import java.util.List;
 public class Crop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int cropId;
+    private long cropId;
     @Column(nullable = false)
     private String cropName;
     @Column(nullable = false)
@@ -42,7 +42,7 @@ public class Crop {
     @Column(nullable = false)
     private List<Harvest> harvests;
 
-    public int getCropId() {
+    public long getCropId() {
         return cropId;
     }
 

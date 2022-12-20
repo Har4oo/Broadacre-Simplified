@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Harvest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int harvestId;
+    private long harvestId;
 
     @Column(nullable = false)
     private int kilograms;
@@ -14,4 +14,28 @@ public class Harvest {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Crop crop;
+
+    public long getHarvestId() {
+        return harvestId;
+    }
+
+    public void setHarvestId(long harvestId) {
+        this.harvestId = harvestId;
+    }
+
+    public int getKilograms() {
+        return kilograms;
+    }
+
+    public void setKilograms(int kilograms) {
+        this.kilograms = kilograms;
+    }
+
+    public Crop getCrop() {
+        return crop;
+    }
+
+    public void setCrop(Crop crop) {
+        this.crop = crop;
+    }
 }

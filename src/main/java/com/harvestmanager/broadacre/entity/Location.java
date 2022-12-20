@@ -9,7 +9,7 @@ import java.util.List;
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int locationId;
+    private long locationId;
     @Column(nullable = false)
     private String locationName;
 
@@ -18,7 +18,7 @@ public class Location {
     @Column(nullable = false)
     private List<Crop> crops;
 
-    public int getLocationId() {
+    public long getLocationId() {
         return locationId;
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 public class Sort {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int sortId;
+    private long sortId;
     @Column(nullable = false)
     private String sortName;
     @Column(nullable = false)
@@ -20,7 +20,7 @@ public class Sort {
     @Column(nullable = false)
     private List<Crop> crops;
 
-    public int getSortId() {
+    public long getSortId() {
         return sortId;
     }
 
