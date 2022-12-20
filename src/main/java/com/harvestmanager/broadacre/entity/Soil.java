@@ -9,7 +9,7 @@ import java.util.List;
 public class Soil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int soilId;
+    private long soilId;
     @Column(nullable = false)
     private String name;
 
@@ -18,7 +18,7 @@ public class Soil {
     @Column(nullable = false)
     private List<Crop> crops;
 
-    public int getSoilId() {
+    public long getSoilId() {
         return soilId;
     }
 
