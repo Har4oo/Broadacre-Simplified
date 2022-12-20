@@ -1,10 +1,9 @@
-package com.example.broadacre.entity;
+package com.harvestmanager.broadacre.entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class PersonalObservations {

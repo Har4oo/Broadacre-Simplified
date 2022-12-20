@@ -1,7 +1,6 @@
-package com.example.broadacre.entity;
+package com.harvestmanager.broadacre.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Harvest {

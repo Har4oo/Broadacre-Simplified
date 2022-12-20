@@ -1,4 +1,4 @@
-package com.example.broadacre.entity;
+package com.harvestmanager.broadacre.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

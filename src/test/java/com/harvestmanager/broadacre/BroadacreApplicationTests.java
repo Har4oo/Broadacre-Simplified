@@ -1,4 +1,4 @@
-package com.example.broadacre;
+package com.harvestmanager.broadacre;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
