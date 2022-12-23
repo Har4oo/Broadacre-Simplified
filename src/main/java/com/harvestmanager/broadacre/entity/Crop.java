@@ -46,7 +46,7 @@ public class Crop {
         return cropId;
     }
 
-    public void setCropId(int cropId) {
+    public void setCropId(long cropId) {
         this.cropId = cropId;
     }
 
