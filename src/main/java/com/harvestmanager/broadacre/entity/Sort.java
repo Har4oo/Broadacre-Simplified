@@ -24,7 +24,7 @@ public class Sort {
         return sortId;
     }
 
-    public void setSortId(int sortId) {
+    public void setSortId(long sortId) {
         this.sortId = sortId;
     }
 
