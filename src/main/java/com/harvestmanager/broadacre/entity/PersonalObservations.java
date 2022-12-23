@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class PersonalObservations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long personalObservationId;
 
     @Column(nullable = false, length = 1000)
     private String description;
@@ -25,12 +25,12 @@ public class PersonalObservations {
     @JoinColumn(nullable = false)
     private Crop crop;
 
-    public long getId() {
-        return id;
+    public long getPersonalObservationId() {
+        return personalObservationId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPersonalObservationId(long personalObservationId) {
+        this.personalObservationId = personalObservationId;
     }
 
     public String getDescription() {

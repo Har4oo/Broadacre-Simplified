@@ -22,7 +22,7 @@ public class Location {
         return locationId;
     }
 
-    public void setLocationId(int locationId) {
+    public void setLocationId(long locationId) {
         this.locationId = locationId;
     }
 
