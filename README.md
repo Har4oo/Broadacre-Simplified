@@ -25,7 +25,7 @@ Table "crops" is the main one. Controls or is controlled by other tables like "p
 ### `check out recommended application.properties file settings`
 ### `mvn clean install`
 
-If everything is okay with both of these you will be able to execute **.jar** file in target **directory**
+If everything is okay with both of these you will be able to execute **.jar** file in **target directory**
 
 After execution the tables in already created **harvestmanager** database will be created identical to the entities
 
