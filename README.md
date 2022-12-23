@@ -6,7 +6,7 @@ Spring boot application API for personal scheduling over garden pots. After plan
 
 Gathering the needed information will significantly improve caring after your favourite plant
 
-### UI of homepage
+### UI of homepage idea
 
 ![crop-integration.png](images%2Fcrop-integration.png)
 You will have the ability to inspect, integrate, delete, update crops
