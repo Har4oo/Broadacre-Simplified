@@ -22,7 +22,7 @@ public class PlantStage {
         return plantStageId;
     }
 
-    public void setPlantStageId(int plantStageId) {
+    public void setPlantStageId(long plantStageId) {
         this.plantStageId = plantStageId;
     }
 

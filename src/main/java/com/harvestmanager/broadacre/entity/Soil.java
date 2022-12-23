@@ -22,7 +22,7 @@ public class Soil {
         return soilId;
     }
 
-    public void setSoilId(int soilId) {
+    public void setSoilId(long soilId) {
         this.soilId = soilId;
     }
 

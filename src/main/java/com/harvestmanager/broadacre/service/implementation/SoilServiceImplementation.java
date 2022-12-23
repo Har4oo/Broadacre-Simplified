@@ -17,7 +17,7 @@ public class SoilServiceImplementation implements SoilService {
 
     @Override
     public List<Soil> getSoils() {
-        return null;
+        return soilRepository.findAll();
     }
 
     @Override
@@ -27,16 +27,17 @@ public class SoilServiceImplementation implements SoilService {
 
     @Override
     public Soil createSoil(Soil soil) {
-        return null;
+        return soilRepository.save(soil);
     }
 
     @Override
     public Soil updateSoil(Soil soil, long id) {
-        return null;
+        soil.setSoilId(id);
+        return soilRepository.save(soil);
     }
 
     @Override
     public void deleteSoil(long id) {
-
+        soilRepository.deleteById(id);
     }
 }

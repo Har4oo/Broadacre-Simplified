@@ -27,16 +27,18 @@ public class PlantStageServiceImplementation implements PlantStageService {
 
     @Override
     public PlantStage createPlantStage(PlantStage plantStage) {
-        return null;
+        System.out.println("Creating a plant stage");
+        return plantStageRepository.save(plantStage);
     }
 
     @Override
     public PlantStage updatePlantStage(PlantStage plantStage, long id) {
-        return null;
+        plantStage.setPlantStageId(id);
+        return plantStageRepository.save(plantStage);
     }
 
     @Override
     public void deletePlantStage(long id) {
-
+        plantStageRepository.deleteById(id);
     }
 }
