@@ -17,7 +17,7 @@ public class SortServiceImplementation implements SortService {
 
     @Override
     public List<Sort> getSorts() {
-        return null;
+        return sortRepository.findAll();
     }
 
     @Override
@@ -27,16 +27,17 @@ public class SortServiceImplementation implements SortService {
 
     @Override
     public Sort createSort(Sort sort) {
-        return null;
+        return sortRepository.save(sort);
     }
 
     @Override
     public Sort updateSort(Sort sort, long id) {
-        return null;
+        sort.setSortId(id);
+        return sortRepository.save(sort);
     }
 
     @Override
     public void deleteSort(long id) {
-
+        sortRepository.deleteById(id);
     }
 }

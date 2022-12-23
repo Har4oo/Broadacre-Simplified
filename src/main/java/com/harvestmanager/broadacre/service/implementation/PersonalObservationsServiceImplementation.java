@@ -29,7 +29,7 @@ public class PersonalObservationsServiceImplementation implements PersonalObserv
     @Override
     public PersonalObservations createPersonalObservation(PersonalObservations personalObservations) {
         System.out.println("Creating personal observation");
-        personalObservationsRepository.save(personalObservations);
+        return personalObservationsRepository.save(personalObservations);
     }
 
     @Override
