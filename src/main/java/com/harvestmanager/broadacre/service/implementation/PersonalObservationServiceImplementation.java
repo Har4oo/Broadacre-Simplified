@@ -1,8 +1,8 @@
 package com.harvestmanager.broadacre.service.implementation;
 
-import com.harvestmanager.broadacre.entity.PersonalObservations;
-import com.harvestmanager.broadacre.repository.PersonalObservationsRepository;
-import com.harvestmanager.broadacre.service.PersonalObservationsService;
+import com.harvestmanager.broadacre.entity.PersonalObservation;
+import com.harvestmanager.broadacre.repository.PersonalObservationRepository;
+import com.harvestmanager.broadacre.service.PersonalObservationService;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,34 +12,34 @@ import java.util.List;
 @Service
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonalObservationsServiceImplementation implements PersonalObservationsService {
-    private PersonalObservationsRepository personalObservationsRepository;
+public class PersonalObservationServiceImplementation implements PersonalObservationService {
+    private PersonalObservationRepository personalObservationRepository;
     @Override
-    public List<PersonalObservations> getPersonalObservations() {
+    public List<PersonalObservation> getPersonalObservations() {
         System.out.println("Listing all current personal observations");
-        return personalObservationsRepository.findAll();
+        return personalObservationRepository.findAll();
     }
 
     @Override
-    public PersonalObservations getPersonalObservation(long id) {
+    public PersonalObservation getPersonalObservation(long id) {
         System.out.println("Listing personal observation by ID");
-        return personalObservationsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
+        return personalObservationRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
     }
 
     @Override
-    public PersonalObservations createPersonalObservation(PersonalObservations personalObservations) {
+    public PersonalObservation createPersonalObservation(PersonalObservation personalObservation) {
         System.out.println("Creating personal observation");
-        return personalObservationsRepository.save(personalObservations);
+        return personalObservationRepository.save(personalObservation);
     }
 
     @Override
-    public PersonalObservations updatePersonalObservation(PersonalObservations personalObservations, long id) {
-        personalObservations.setPersonalObservationId(id);
-        return personalObservationsRepository.save(personalObservations);
+    public PersonalObservation updatePersonalObservation(PersonalObservation personalObservation, long id) {
+        personalObservation.setPersonalObservationId(id);
+        return personalObservationRepository.save(personalObservation);
     }
 
     @Override
     public void deletePersonalObservation(long id) {
-        personalObservationsRepository.deleteById(id);
+        personalObservationRepository.deleteById(id);
     }
 }

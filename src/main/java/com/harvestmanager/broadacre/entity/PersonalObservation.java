@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-public class PersonalObservations {
+public class PersonalObservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long personalObservationId;
