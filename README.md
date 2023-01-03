@@ -27,5 +27,5 @@ Table "crops" is the main one. Controls or is controlled by other tables like "p
 
 If everything is okay with both of these you will be able to execute **.jar** file in **target directory**
 
-After execution the tables in already created **harvestmanager** database will be created identical to the entities
+After execution the tables in already created **harvestmanager** database will be structured identical to the entities
 
