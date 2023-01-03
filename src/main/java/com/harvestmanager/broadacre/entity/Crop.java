@@ -35,7 +35,7 @@ public class Crop {
     @OneToMany(mappedBy = "crop")
     @JsonIgnore
     @Column(nullable = false)
-    private List<PersonalObservations> personalObservations;
+    private List<PersonalObservation> personalObservations;
 
     @OneToMany(mappedBy = "crop")
     @JsonIgnore
