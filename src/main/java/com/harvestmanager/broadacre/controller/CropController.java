@@ -20,7 +20,7 @@ public class CropController {
         return cropService.getCrops();
     }
 
-    @GetMapping("/crop/{id}")
+    @GetMapping("/{id}")
     public Crop getCrop(@PathVariable("id") long id) {
         return cropService.getCrop(id);
     }
