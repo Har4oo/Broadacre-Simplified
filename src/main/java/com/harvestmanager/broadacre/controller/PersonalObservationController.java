@@ -20,7 +20,7 @@ public class PersonalObservationController {
         return personalObservationService.getPersonalObservations();
     }
 
-    @GetMapping("/personalObservation/{id}")
+    @GetMapping("/{id}")
     public PersonalObservation getPersonalObservation(@PathVariable("id") long id){
         return personalObservationService.getPersonalObservation(id);
     }

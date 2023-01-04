@@ -30,12 +30,12 @@ public class PlantStageController {
         return plantStageService.createPlantStage(plantStage);
     }
 
-    @PutMapping("/updateCrop/{id}")
+    @PutMapping("/updatePlantStage/{id}")
     public PlantStage plantStage(@RequestBody PlantStage plantStage, @PathVariable("id") long id) {
         return plantStageService.updatePlantStage(plantStage, id);
     }
 
-    @DeleteMapping("/deleteCrop/{id}")
+    @DeleteMapping("/deletePlantStage/{id}")
     public void deleteCrop(@PathVariable("id") long id){
         plantStageService.deletePlantStage(id);
     }

@@ -30,7 +30,7 @@ public class SoilController {
         return soilService.createSoil(soil);
     }
 
-    @PutMapping("/updateCrop/{id}")
+    @PutMapping("/updateSoil/{id}")
     public Soil updateSoil(@RequestBody Soil soil, @PathVariable("id")long id){
         return soilService.updateSoil(soil,id);
     }

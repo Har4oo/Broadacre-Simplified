@@ -20,7 +20,7 @@ public class LocationController {
         return locationService.getLocations();
     }
 
-    @GetMapping("/location/{id}")
+    @GetMapping("/{id}")
     public Location getLocation(@PathVariable("id") long id) {
         return locationService.getLocation(id);
     }

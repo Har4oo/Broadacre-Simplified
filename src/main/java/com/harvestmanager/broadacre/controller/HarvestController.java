@@ -21,7 +21,7 @@ public class HarvestController {
         return harvestService.getHarvests();
     }
 
-    @GetMapping("/harvest/{id}")
+    @GetMapping("/{id}")
     public Harvest getHarvest(@PathVariable("id") long id) {
         return harvestService.getHarvest(id);
     }
