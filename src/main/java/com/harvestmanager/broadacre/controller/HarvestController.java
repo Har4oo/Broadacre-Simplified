@@ -36,7 +36,7 @@ public class HarvestController {
         return harvestService.updateHarvest(harvest, id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteHarvest/{id}")
     public void deleteHarvest(@PathVariable("id") long id) {
         harvestService.deleteHarvest(id);
     }

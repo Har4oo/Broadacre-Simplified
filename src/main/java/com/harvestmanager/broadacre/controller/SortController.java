@@ -26,17 +26,17 @@ public class SortController {
         return sortService.getSort(id);
     }
     
-    @PostMapping("/createSoil")
+    @PostMapping("/createSort")
     public Sort createSort(@RequestBody Sort sort){
         return sortService.createSort(sort);
     }
     
-    @PutMapping("/updateSoil/{id}")
+    @PutMapping("/updateSort/{id}")
     public Sort updateSort(@RequestBody Sort sort, @PathVariable("id") long id){
         return sortService.updateSort(sort,id);
     }
     
-    @DeleteMapping("/deleteSoil/{id}")
+    @DeleteMapping("/deleteSort/{id}")
     public void deletesSort(@PathVariable("id") long id){
         sortService.deleteSort(id);
     }
