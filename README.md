@@ -6,6 +6,16 @@ Spring boot application API for personal scheduling over garden pots. After plan
 
 Gathering the needed information will significantly improve caring after your favourite plant
 
+### Used Technologies and DEV Environment 
+* Java
+* Spring Boot
+* MySQL | MySQL Workbench
+* Thymeleaf
+* Bootstrap
+* Postman
+* IntelliJ IDEA [Community Edition]
+* Git | GitHub | GitHub Projects 
+
 ### UI of homepage idea
 
 ![crop-integration.png](images%2Fcrop-integration.png)
