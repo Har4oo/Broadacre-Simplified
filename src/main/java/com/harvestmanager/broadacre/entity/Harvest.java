@@ -12,7 +12,7 @@ public class Harvest {
     private int kilograms;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "crop_id")
     private Crop crop;
 
     public long getHarvestId() {

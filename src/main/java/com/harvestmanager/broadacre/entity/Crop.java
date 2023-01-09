@@ -17,19 +17,19 @@ public class Crop {
     @Column(nullable = false)
     private boolean active;
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false,name = "soil_id")
     private Soil soil;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "plantStage_id")
     private PlantStage plantStage;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "location_id")
     private Location location;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "sort_id")
     private Sort sort;
 
     @OneToMany(mappedBy = "crop")

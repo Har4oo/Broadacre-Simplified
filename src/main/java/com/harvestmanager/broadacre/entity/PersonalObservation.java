@@ -22,7 +22,7 @@ public class PersonalObservation {
     private String result;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "crop_id")
     private Crop crop;
 
     public long getPersonalObservationId() {
