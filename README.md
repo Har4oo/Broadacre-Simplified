@@ -23,7 +23,7 @@ You will have the ability to inspect, integrate, delete, update crops
 
 ### MySQL database structure 
 
-![database-structure.PNG](images%2Fdatabase-structure.PNG)
+![database-structure.png](images%2Fdatabase-structure.png)
 Table "crops" is the main one. Controls or is controlled by other tables like "personal_observations" and "harvesting".
 
 ### Pattern of project structure creation :
