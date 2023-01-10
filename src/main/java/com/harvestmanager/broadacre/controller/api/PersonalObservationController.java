@@ -1,4 +1,4 @@
-package com.harvestmanager.broadacre.controller;
+package com.harvestmanager.broadacre.controller.api;
 
 import com.harvestmanager.broadacre.entity.PersonalObservation;
 import com.harvestmanager.broadacre.service.PersonalObservationService;

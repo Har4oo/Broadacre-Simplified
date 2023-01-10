@@ -1,4 +1,4 @@
-package com.harvestmanager.broadacre.controller;
+package com.harvestmanager.broadacre.controller.api;
 
 import com.harvestmanager.broadacre.entity.PlantStage;
 import com.harvestmanager.broadacre.service.PlantStageService;
