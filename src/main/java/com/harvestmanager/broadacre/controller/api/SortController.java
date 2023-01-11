@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @RestController
 @RequestMapping("/api/sort")
 public class SortController {
