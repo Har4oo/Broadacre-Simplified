@@ -1,5 +1,6 @@
 package com.harvestmanager.broadacre.controller.view;
 
+import com.harvestmanager.broadacre.entity.Location;
 import com.harvestmanager.broadacre.service.LocationService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,11 @@ public class LocationViewController {
     public String locationView(Model model){
         System.out.println(locationService.getLocations().toString());
         model.addAttribute("locations",locationService.getLocations());
-        return "location";
+        return "/location/location";
+    }
+    @GetMapping("/createLocation")
+    public String createLocation(Model model){
+        model.addAttribute("location",new Location());
+        return "/location/createLocation";
     }
 }
