@@ -3,6 +3,8 @@ package com.harvestmanager.broadacre.controller.view;
 import com.harvestmanager.broadacre.service.LocationService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -11,5 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LocationViewController {
     private LocationService locationService;
 
-
+    @GetMapping
+    public String locationView(Model model){
+        System.out.println(locationService.getLocations().toString());
+        model.addAttribute("locations",locationService.getLocations());
+        return "location";
+    }
 }
