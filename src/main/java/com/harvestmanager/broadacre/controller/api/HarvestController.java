@@ -10,7 +10,6 @@ import java.util.List;
 
 
 @AllArgsConstructor
-@NoArgsConstructor
 @RestController
 @RequestMapping("/api/harvest")
 public class HarvestController {

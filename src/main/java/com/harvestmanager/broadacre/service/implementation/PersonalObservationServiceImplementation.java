@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@NoArgsConstructor
 @AllArgsConstructor
 public class PersonalObservationServiceImplementation implements PersonalObservationService {
     private PersonalObservationRepository personalObservationRepository;
