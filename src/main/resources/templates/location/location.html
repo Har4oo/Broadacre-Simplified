@@ -15,16 +15,20 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Location Name</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="location : ${locations}">
             <td th:text="${location.locationId}"></td>
             <td th:text="${location.locationName}"></td>
+            <td><a class="btn btn-info" th:href="@{'/location/editLocation/'+${location.LocationId}}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/location/deleteLocation/'+${location.locationId}}">Delete</a>
         </tr>
         </tbody>
     </table>
 </div>
-<a href="/createLocation" type="button" class="btn btn-primary btn-lg">Large button</a>
+<a href="/location/createLocation" type="button" class="btn btn-primary btn-lg">Large button</a>
 </body>
 </html>
