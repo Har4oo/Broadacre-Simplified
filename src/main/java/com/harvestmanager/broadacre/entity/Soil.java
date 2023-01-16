@@ -1,17 +1,19 @@
 package com.harvestmanager.broadacre.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@ToString
 public class Soil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long soilId;
     @Column(nullable = false)
-    private String name;
+    private String soilName;
 
     @OneToMany(mappedBy = "soil")
     @JsonIgnore
@@ -26,12 +28,12 @@ public class Soil {
         this.soilId = soilId;
     }
 
-    public String getName() {
-        return name;
+    public String getSoilName() {
+        return soilName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSoilName(String soilName) {
+        this.soilName = soilName;
     }
 
     public List<Crop> getCrops() {
