@@ -5,10 +5,7 @@ import com.harvestmanager.broadacre.service.LocationService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/location")
@@ -30,6 +27,22 @@ public class LocationViewController {
     @PostMapping("/post/createLocation")
     public String createLocation(@ModelAttribute Location location){
         locationService.createLocation(location);
+        return "redirect:/location";
+    }
+    @GetMapping("/editLocation/{id}")
+    public String editLocation(Model model, @PathVariable long id){
+        model.addAttribute("location",locationService.getLocation(id));
+        return "/location/editLocation";
+    }
+    @PostMapping("/put/updateLocation/{id}")
+    public String updateLocation(@PathVariable long id, @ModelAttribute Location location){
+        System.out.println("updating value");
+        locationService.updateLocation(location,id);
+        return "redirect:/location";
+    }
+    @GetMapping("/deleteLocation/{id}")
+    public String deleteLocation(@PathVariable long id){
+        locationService.deleteLocation(id);
         return "redirect:/location";
     }
 }
