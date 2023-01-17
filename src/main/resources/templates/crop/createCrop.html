@@ -16,16 +16,30 @@
       <input class="form-control" type="text" th:field="*{cropName}" placeholder="Sort Name" id="cropName">
     </div>
     <div class="form-group">
-      <input class="form-control" type="text" th:field="*{seedlingsNumber}" placeholder="Sort origin" id="cropSeedlings">
+      <input class="form-control" type="text" th:field="*{seedlingsNumber}" placeholder="Seedlings number" id="cropSeedlings">
     </div>
     <div class="form-group">
       <input class="form-control" type="text" th:field="*{active}" placeholder="Active" id="cropActive">
     </div>
-    <div class="form-group">
-      <input class="form-control" type="text" th:field="*{soil}" placeholder="Soil" id="soil">
+    <div>
+      <select th:field="*{soil}">
+        <option th:each="soil : ${soils}" th:value="${soil.soilId}" th:text="${soil.soilName}"></option>
+      </select>
     </div>
-    <div class="form-group">
-      <input class="form-control" type="text" th:field="*{plantStage}" placeholder="Plant Stage" id="plantStage">
+    <div>
+      <select th:field="*{sort}">
+        <option th:each="sort : ${sorts}" th:value="${sort.sortId}" th:text="${sort.sortName}"></option>
+      </select>
+    </div>
+    <div>
+      <select th:field="*{location}">
+        <option th:each="location : ${locations}" th:value="${location.locationId}" th:text="${location.locationName}"></option>
+      </select>
+    </div>
+    <div>
+      <select th:field="*{plantStage}">
+        <option th:each="plantStage : ${plantStages}" th:value="${plantStage.plantStageId}" th:text="${plantStage.plantStageName}"></option>
+      </select>
     </div>
     <button type="submit" class="btn btn-primary">Save Crop</button>
   </form>
