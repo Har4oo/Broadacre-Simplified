@@ -16,7 +16,7 @@ public class PlantStageServiceImplementation implements PlantStageService {
 
     @Override
     public List<PlantStage> getPlantStages() {
-        return null;
+        return plantStageRepository.findAll();
     }
 
     @Override
