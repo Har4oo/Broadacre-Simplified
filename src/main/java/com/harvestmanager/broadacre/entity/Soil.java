@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@ToString
 public class Soil {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
