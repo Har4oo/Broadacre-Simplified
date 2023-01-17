@@ -31,10 +31,10 @@
             <td th:text="${crop.cropName}"></td>
             <td th:text="${crop.seedlingsNumber}"></td>
             <td th:text="${crop.active}"></td>
-            <td th:text="${crop.soil}"></td>
-            <td th:text="${crop.plantStage}"></td>
-            <td th:text="${crop.sort}"></td>
-            <td th:text="${crop.location}"></td>
+            <td th:text="${crop.soil.soilName}"></td>
+            <td th:text="${crop.plantStage.plantStageName}"></td>
+            <td th:text="${crop.sort.sortName}"></td>
+            <td th:text="${crop.location.locationName}"></td>
             <td><a class="btn btn-info" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a></td>
             <td><a class="btn btn-danger" th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
         </tr>

@@ -1,11 +1,13 @@
 package com.harvestmanager.broadacre.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@ToString
 public class Crop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
