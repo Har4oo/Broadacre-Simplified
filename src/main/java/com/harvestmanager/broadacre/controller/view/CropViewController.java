@@ -55,6 +55,6 @@ public class CropViewController {
     @GetMapping("/deleteCrop/{id}")
     public String deleteCrop(@PathVariable long id){
         cropService.deleteCrop(id);
-        return "redirect:/index";
+        return "redirect:/";
     }
 }
