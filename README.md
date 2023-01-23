@@ -41,12 +41,10 @@ After execution the tables in already created **harvestmanager** database will b
 
 ### List of all functionalities
 
-1. Cards showing the crops photo and information about it's sort, seedlings number, soil and etc.
-2. **Web pages representing the MVC model of the application (table representation with CRUD)**  
-3. Database integration 
-4. Integration of dropdown menus to help with relations, cards presenting crops, navbar for relocation and etc.
-5. Dashboard home page summarizing crops status and their data
-6. Redirection and easy access to every page from navigation bar
+1. Cards showing the crops' photo and description about it's characteristics provided from the database 
+2. Navigation bar having the ability to redirect the user to other app pages
+3. Reading, creating, editing and deleting data every table via the pages
+4. Dropdown menus allowing the user to choose from data possible that communicates between tables
 
 ### Full Dataflow Diagram
 ![full-data-diagram-flow.jpg](images%2Ffull-data-diagram-flow.jpg)
