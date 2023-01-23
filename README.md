@@ -41,10 +41,14 @@ After execution the tables in already created **harvestmanager** database will b
 
 ### List of all functionalities
 
-1. Cards showing the crops' photo and description about it's characteristics provided from the database 
-2. Navigation bar having the ability to redirect the user to other app pages
-3. Reading, creating, editing and deleting data every table via the pages
-4. Dropdown menus allowing the user to choose from data possible that communicates between tables
+1. Inspecting the whole cop information about it's sort, plant stage, soil quality, location, whether it's active, seedlings number and etc.
+2. Easy access to other pages such as locations, sorts, soils and so on via the navbar
+3. HarvestManager allows you to:  
+   * Manipulate every data possible
+   * Tracking the soil quality from planting to harvesting
+   * Giving the plant place information
+   * Defining information after harvesting
+   * Commenting about personal observation the user has noticed during the plant lifespan
 
 ### Full Dataflow Diagram
 ![full-data-diagram-flow.jpg](images%2Ffull-data-diagram-flow.jpg)
