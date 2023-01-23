@@ -23,7 +23,7 @@ You will have the ability to inspect, integrate, delete, update crops
 
 ### MySQL database structure 
 
-![database-structure.png](images%2Fdatabase-structure.png)
+![database-structure.png](images%2Fdatabase-structure.png)  
 Table "crops" is the main one. Controls or is controlled by other tables like "personal_observations" and "harvesting".
 
 ### Pattern of project structure creation :
@@ -41,19 +41,21 @@ After execution the tables in already created **harvestmanager** database will b
 
 ### List of all functionalities
 
-1. **Web pages representing the MVC model of the application (table representation with CRUD)**  
-2. Database integration 
-3. Integration of dropdown menus to help with relations, cards presenting crops, navbar for relocation and etc.
-4. Dashboard home page summarizing crops status and their data
-5. Redirection and easy access to every page from navigation bar
-6. REST API with CRUD for all models
+1. Cards showing the crops photo and information about it's sort, seedlings number, soil and etc.
+2. **Web pages representing the MVC model of the application (table representation with CRUD)**  
+3. Database integration 
+4. Integration of dropdown menus to help with relations, cards presenting crops, navbar for relocation and etc.
+5. Dashboard home page summarizing crops status and their data
+6. Redirection and easy access to every page from navigation bar
 
 ### Full Dataflow Diagram
-![HarvestManager-dataflow-diagram.jpg](images%2FHarvestManager-dataflow-diagram.jpg)
+![full-data-diagram-flow.jpg](images%2Ffull-data-diagram-flow.jpg)
 
-The client has the full authority to read, create, edit and delete data from the database.
-HarvestManager is a single-user app. The user has the ability to request the index/home page
-which displays the existing crops. Those crops are readable, editable, removable and creatable.
-Crops depend on the sorts, plant stages, locations and soils which means crops are not possible
-for creation if these tables are empty. Harvest and personal observations depend on crops.
+1. HarvestManager is a web application where the user has the full authority to manipulate
+the whole data flow. User via the tools that Thymeleaf and Bootstrap provide can access
+the data. 
+2. Thymeleaf communicates with the ViewController allowing the user's data to be
+agile. The view is contains all of these controllers and Thymeleaf, Bootstrap integration.
+3. The business logic is fully controlled by the service and it's implementation by 
+getting the model data from repository. Entities allow the whole database creation.
 
