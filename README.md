@@ -41,13 +41,12 @@ After execution the tables in already created **harvestmanager** database will b
 
 ### List of all functionalities
 
-1. **CRUD using the MVC model.**  
-2. Hibernate/JPA creating Entities **[CROP, HARVEST, LOCATION, PERSONALOBSERVATION, PLANTSTAGE, SOIL, SORT]** in Database 
-3. HTML pages for all of the entities (about to change) [edit, create and home page]
-4. HTML and CSS for dropdowns, cards, navbar and etc.
-5. Index/Home page presenting existing crops and their data
-6. Navbar redirecting to every page possible
-7. API and View data manipulation
+1. **Web pages representing the MVC model of the application (table representation with CRUD)**  
+2. Database integration 
+3. Integration of dropdown menus to help with relations, cards presenting crops, navbar for relocation and etc.
+4. Dashboard home page summarizing crops status and their data
+5. Redirection and easy access to every page from navigation bar
+6. REST API with CRUD for all models
 
 ### Full Dataflow Diagram
 ![HarvestManager-dataflow-diagram.jpg](images%2FHarvestManager-dataflow-diagram.jpg)
