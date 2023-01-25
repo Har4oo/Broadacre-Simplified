@@ -9,60 +9,32 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Crop Name</th>
-            <th scope="col">Seedlings Number</th>
-            <th scope="col">Active</th>
-            <th scope="col">Soil</th>
-            <th scope="col">Plant Stage</th>
-            <th scope="col">Sort</th>
-            <th scope="col">Location</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="crop : ${crops}">
-            <td th:text="${crop.cropId}"></td>
-            <td th:text="${crop.cropName}"></td>
-            <td th:text="${crop.seedlingsNumber}"></td>
-            <td th:text="${crop.active}"></td>
-            <td th:text="${crop.soil.soilName}"></td>
-            <td th:text="${crop.plantStage.plantStageName}"></td>
-            <td th:text="${crop.sort.sortName}"></td>
-            <td th:text="${crop.location.locationName}"></td>
-            <td><a class="btn btn-info" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
-        </tr>
-        </tbody>
-    </table>
-</div>
 <a href="/crop/createCrop" type="button" class="btn btn-primary btn-lg">Create crop</a>
 <div class="row m-3 p-3">
     <div class="col-md" th:each="crop : ${crops}" style="width: 18rem;">
         <div class="card m-3" style="width: 18rem;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h4 class="card card-title" th:text="${crop.cropName}"></h4>
-                <h5 class="card-subtitle mb-2 text-muted" th:text="${crop.sort.sortName}"></h5>
                 <div>
-
+                    <h4 class="card card-title" th:text="${crop.cropName}"></h4>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2">isActive: </h6>
+                    <h5 class="card-subtitle mb-2 text-muted" th:text="${crop.sort.sortName}"></h5>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2">Plant Stage: </h6>
+                    <h6 class="card-subtitle mb-2" th:text="${crop.plantStage.plantStageName}"></h6>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2">Soil: </h6>
+                    <h6 class="card-subtitle mb-2" th:text="${crop.isActive}">isActive: </h6>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2">Location: </h6>
+                    <h6 class="card-subtitle mb-2" th:text="${crop.seedlingsNumber}">seedlingsNumber: </h6>
+                </div>
+                <div>
+                    <h6 class="card-subtitle mb-2" th:text="${crop.soil.soilName}">Soil: </h6>
+                </div>
+                <div>
+                    <h6 class="card-subtitle mb-2" th:text="${crop.location.locationName}">Location: </h6>
                 </div>
                 <a class="btn btn-primary" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
                 <a class="btn btn-danger" th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
