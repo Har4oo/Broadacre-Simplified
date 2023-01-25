@@ -2,6 +2,7 @@ package com.harvestmanager.broadacre.controller.view;
 
 import com.harvestmanager.broadacre.entity.Harvest;
 import com.harvestmanager.broadacre.entity.Location;
+import com.harvestmanager.broadacre.service.CropService;
 import com.harvestmanager.broadacre.service.HarvestService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,17 +14,20 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class HarvestViewController {
     private HarvestService harvestService;
+    private CropService cropService;
 
     @GetMapping
     public String harvestView(Model model){
         System.out.println(harvestService.getHarvests().toString());
-        model.addAttribute("harvest",harvestService.getHarvests());
+        model.addAttribute("harvests",harvestService.getHarvests());
+        model.addAttribute("crops",cropService.getCrops());
         return "/harvest/harvest";
     }
 
     @GetMapping("/createHarvest")
     public String createHarvest(Model model){
         model.addAttribute("harvest",new Harvest());
+        model.addAttribute("crops",cropService.getCrops());
         return "/harvest/createHarvest";
     }
 
@@ -35,6 +39,7 @@ public class HarvestViewController {
     @GetMapping("/editHarvest/{id}")
     public String editHarvest(Model model, @PathVariable long id){
         model.addAttribute("harvest",harvestService.getHarvest(id));
+        model.addAttribute("crops",cropService.getCrops());
         return "/harvest/editHarvest";
     }
     @PostMapping("/put/updateHarvest/{id}")
