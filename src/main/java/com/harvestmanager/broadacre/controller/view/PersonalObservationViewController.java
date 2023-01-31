@@ -44,10 +44,10 @@ public class PersonalObservationViewController {
         model.addAttribute("crops",cropService.getCrops());
         return "/personalobservation/editPersonalObservation";
     }
-    @PostMapping("/put/updateHarvest/{id}")
+    @PostMapping("/put/updatePersonalObservation/{id}")
     public String updatePersonalObservation(@PathVariable long id, @ModelAttribute PersonalObservation personalObservation){
-        System.out.println("updating value");
         personalObservationService.updatePersonalObservation(personalObservation,id);
+        System.out.println("updating value " + personalObservationService.getPersonalObservation(id).toString());
         return "redirect:/personalObservation";
     }
     @GetMapping("/deletePersonalObservation/{id}")

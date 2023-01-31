@@ -33,6 +33,7 @@ public class PersonalObservationServiceImplementation implements PersonalObserva
 
     @Override
     public PersonalObservation updatePersonalObservation(PersonalObservation personalObservation, long id) {
+        System.out.println("updating value " + personalObservation.toString());
         personalObservation.setPersonalObservationId(id);
         return personalObservationRepository.save(personalObservation);
     }
