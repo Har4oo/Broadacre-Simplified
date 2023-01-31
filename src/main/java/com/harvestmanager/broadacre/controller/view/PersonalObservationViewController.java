@@ -57,8 +57,9 @@ public class PersonalObservationViewController {
     }
 
     @GetMapping("/viewPersonalObservation/{id}")
-    public String viewPersonalObservation(@PathVariable long id){
+    public String viewPersonalObservation(@PathVariable long id, Model model){
         personalObservationService.getPersonalObservation(id);
+        model.addAttribute("personalObservation", personalObservationService.getPersonalObservation(id));
         return "/personalobservation/viewPersonalObservation";
     }
 }
