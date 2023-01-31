@@ -55,4 +55,10 @@ public class PersonalObservationViewController {
         personalObservationService.deletePersonalObservation(id);
         return "redirect:/personalObservation";
     }
+
+    @GetMapping("/viewPersonalObservation/{id}")
+    public String viewPersonalObservation(@PathVariable long id){
+        personalObservationService.getPersonalObservation(id);
+        return "/personalobservation/viewPersonalObservation";
+    }
 }
