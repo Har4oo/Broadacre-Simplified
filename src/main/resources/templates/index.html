@@ -10,9 +10,9 @@
 <body>
 <header th:replace="fragments :: header"></header>
 <a href="/crop/createCrop" type="button" class="btn btn-primary btn-lg">Create crop</a>
-<div class="row m-3 p-3">
-    <div class="col-md" th:each="crop : ${crops}" style="width: 18rem;">
-        <div class="card m-3" style="width: 18rem;">
+<div class="row p-5">
+    <div class="col m-3" th:each="crop : ${crops}">
+        <div class="card" style="width: 18rem;">
             <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <div>
