@@ -13,13 +13,11 @@
   <table class="table table-bordered">
     <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">Problem Type</th>
       <th scope="col">Description</th>
       <th scope="col">Date Created</th>
       <th scope="col">Result</th>
       <th scope="col">Crop</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
       <th scope="col">View</th>
     </tr>
     </thead>
@@ -30,8 +28,6 @@
       <td th:text="${personalObservation.dateCreated}"></td>
       <td th:text="${personalObservation.result}"></td>
       <td th:text="${personalObservation.crop.cropName}"></td>
-      <td><a class="btn btn-info" th:href="@{'/personalObservation/editPersonalObservation/'+${personalObservation.personalObservationId}}">Edit</a></td>
-      <td><a class="btn btn-danger" th:href="@{'/personalObservation/deletePersonalObservation/'+${personalObservation.personalObservationId}}">Delete</a>
       <td><a class="btn btn-danger" th:href="@{'/personalObservation/viewPersonalObservation/'+${personalObservation.personalObservationId}}">View</a>
     </tr>
     </tbody>
