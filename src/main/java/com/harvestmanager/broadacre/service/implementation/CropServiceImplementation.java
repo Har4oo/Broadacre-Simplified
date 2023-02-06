@@ -1,6 +1,7 @@
 package com.harvestmanager.broadacre.service.implementation;
 
 import com.harvestmanager.broadacre.entity.Crop;
+import com.harvestmanager.broadacre.entity.PlantStage;
 import com.harvestmanager.broadacre.repository.CropRepository;
 import com.harvestmanager.broadacre.service.CropService;
 import lombok.AllArgsConstructor;
