@@ -10,4 +10,7 @@ public interface PlantStageService {
     PlantStage createPlantStage(PlantStage plantStage);
     PlantStage updatePlantStage(PlantStage plantStage, long id);
     void deletePlantStage(long id);
+
+    int getPlantStageValue(PlantStage plantStage);
+
 }
