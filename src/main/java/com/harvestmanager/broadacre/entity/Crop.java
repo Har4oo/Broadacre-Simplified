@@ -34,12 +34,12 @@ public class Crop {
     @JoinColumn(nullable = false, name = "sort_id")
     private Sort sort;
 
-    @OneToMany(mappedBy = "crop")
+    @OneToMany(mappedBy = "crop",cascade={CascadeType.REMOVE})
     @JsonIgnore
     @Column(nullable = false)
     private List<PersonalObservation> personalObservations;
 
-    @OneToMany(mappedBy = "crop")
+    @OneToMany(mappedBy = "crop",cascade={CascadeType.REMOVE})
     @JsonIgnore
     @Column(nullable = false)
     private List<Harvest> harvests;

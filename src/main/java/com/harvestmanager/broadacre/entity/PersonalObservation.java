@@ -1,5 +1,7 @@
 package com.harvestmanager.broadacre.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -22,6 +24,7 @@ public class PersonalObservation {
     private String result;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(nullable = false, name = "crop_id")
     private Crop crop;
 

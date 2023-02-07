@@ -1,5 +1,8 @@
 package com.harvestmanager.broadacre.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +15,7 @@ public class Harvest {
     private int kilograms;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(nullable = false, name = "crop_id")
     private Crop crop;
 
