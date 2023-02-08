@@ -9,7 +9,6 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<a href="/crop/createCrop" type="button" class="btn btn-primary btn-lg">Create crop</a>
 <div class="row p-5">
     <div class="col m-3" th:each="crop : ${crops}">
         <div class="card" style="width: 18rem;">
