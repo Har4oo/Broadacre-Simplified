@@ -42,6 +42,7 @@ After execution the tables in already created **harvestmanager** database will b
 ### List of all functionalities
 
 1. Inspecting the whole crop information about it's sort, plant stage, soil quality, location, whether it's active, seedlings number and etc.
+2. Page allowing you to focus on crop's harvests and personal observations
 2. Easy access to other pages such as locations, sorts, soils and so on via the navbar
 3. HarvestManager allows you to:  
    * Manipulate every data possible
