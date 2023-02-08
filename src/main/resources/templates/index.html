@@ -18,32 +18,32 @@
                     <h4 class="card card-title" th:text="${crop.cropName}"></h4>
                 </div>
                 <div>
-                    <h5 class="card-subtitle mb-2 text-muted" th:text="${crop.sort.sortName}"></h5>
+                    <h5 class="card-subtitle m-2 text-muted" th:text="${crop.sort.sortName}"></h5>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2" th:text="${crop.plantStage.plantStageName}"></h6>
+                    <h6 class="card-subtitle m-2" th:text="${crop.plantStage.plantStageName}"></h6>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2" th:text="${crop.isActive}">isActive: </h6>
+                    <h6 class="card-subtitle m-2" th:text="${crop.isActive}">isActive: </h6>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2" th:text="${crop.seedlingsNumber}">seedlingsNumber: </h6>
+                    <h6 class="card-subtitle m-2" th:text="${crop.seedlingsNumber}">seedlingsNumber: </h6>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2" th:text="${crop.soil.soilName}">Soil: </h6>
+                    <h6 class="card-subtitle m-2" th:text="${crop.soil.soilName}">Soil: </h6>
                 </div>
                 <div>
-                    <h6 class="card-subtitle mb-2" th:text="${crop.location.locationName}">Location: </h6>
+                    <h6 class="card-subtitle m-2" th:text="${crop.location.locationName}">Location: </h6>
                 </div>
-                <div class="progress m-3">
+                <div class="progress m-1" style="height: 25px;">
                     <div class="progress-bar" th:style="'width:'+(${crop.plantStage.plantStageInPercents})+'%'"
                          role="progressbar" aria-valuemin="0" aria-valuemax="100"
                          th:text="${crop.plantStage.plantStageName}"></div>
                 </div>
                 <div class="container">
                     <div class="row">
-                        <a class="btn btn-primary col" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
-                        <a class="btn btn-danger col" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                        <a class="btn btn-primary col m-2" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
+                        <a class="btn btn-danger col m-2" data-bs-toggle="modal" data-bs-target="#deleteModal"
                            th:action="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
                     </div>
                 </div>
