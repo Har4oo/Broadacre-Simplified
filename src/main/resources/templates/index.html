@@ -36,10 +36,12 @@
                 <div>
                     <h6 class="card-subtitle mb-2" th:text="${crop.location.locationName}">Location: </h6>
                 </div>
+                <div class="progress">
+                    <div class="progress-bar" th:style="'width:'+(${crop.plantStage.plantStageInPercents})+'%'" role="progressbar" aria-valuemin="0" aria-valuemax="100" th:text="${crop.plantStage.plantStageName}"></div>
+                </div>
                 <a class="btn btn-primary" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
-                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" th:action="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
-
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" th:action="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
