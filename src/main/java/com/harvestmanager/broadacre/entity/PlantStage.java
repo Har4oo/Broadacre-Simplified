@@ -1,6 +1,7 @@
 package com.harvestmanager.broadacre.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +13,9 @@ public class PlantStage {
     private long plantStageId;
     @Column(nullable = false)
     private String plantStageName;
+
+    @Column(nullable = false)
+    private int plantStageInPercents;
 
     @OneToMany(mappedBy = "plantStage")
     @JsonIgnore
@@ -40,5 +44,21 @@ public class PlantStage {
 
     public void setCrops(List<Crop> crops) {
         this.crops = crops;
+    }
+
+    public int getPlantStageInPercents() {
+        return plantStageInPercents;
+    }
+
+    public void setPlantStageInPercents(int plantStageInPercents) {
+        this.plantStageInPercents = plantStageInPercents;
+
+    }
+
+    @Override
+    public String toString() {
+        return "PlantStage{" +
+                "plantStageInPercents=" + plantStageInPercents +
+                '}';
     }
 }

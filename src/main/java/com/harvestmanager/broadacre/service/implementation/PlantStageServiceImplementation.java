@@ -40,32 +40,4 @@ public class PlantStageServiceImplementation implements PlantStageService {
     public void deletePlantStage(long id) {
         plantStageRepository.deleteById(id);
     }
-
-    @Override
-    public int getPlantStageValue(PlantStage plantStage) {
-        System.out.println("Getting plant stage value via the string");
-
-        int plantStageInNumberValue = 0;
-        switch (plantStage.getPlantStageName()){
-            case "Sprout":
-                plantStageInNumberValue = 1;
-                break;
-            case "Seedling":
-                plantStageInNumberValue = 2;
-                break;
-            case "Vegetative":
-                plantStageInNumberValue = 3;
-                break;
-            case "Budding":
-                plantStageInNumberValue = 4;
-                break;
-            case "Flowering":
-                plantStageInNumberValue = 5;
-                break;
-            case "Ripening":
-                plantStageInNumberValue = 6;
-                break;
-        }
-        return plantStageInNumberValue;
-    }
 }
