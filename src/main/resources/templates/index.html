@@ -9,60 +9,63 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<div class="row p-5">
-    <div class="col m-3" th:each="crop : ${crops}">
-        <div class="card" style="width: 18rem;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div>
-                    <h4 class="card card-title" th:text="${crop.cropName}"></h4>
-                </div>
-                <div>
-                    <h5 class="card-subtitle m-2 text-muted" th:text="${crop.sort.sortName}"></h5>
-                </div>
-                <div>
-                    <h6 class="card-subtitle m-2" th:text="${crop.plantStage.plantStageName}"></h6>
-                </div>
-                <div>
-                    <h6 class="card-subtitle m-2" th:text="${crop.isActive}">isActive: </h6>
-                </div>
-                <div>
-                    <h6 class="card-subtitle m-2" th:text="${crop.seedlingsNumber}">seedlingsNumber: </h6>
-                </div>
-                <div>
-                    <h6 class="card-subtitle m-2" th:text="${crop.soil.soilName}">Soil: </h6>
-                </div>
-                <div>
-                    <h6 class="card-subtitle m-2" th:text="${crop.location.locationName}">Location: </h6>
-                </div>
-                <div class="progress m-1" style="height: 25px;">
-                    <div class="progress-bar" th:style="'width:'+(${crop.plantStage.plantStageInPercents})+'%'"
-                         role="progressbar" aria-valuemin="0" aria-valuemax="100"
-                         th:text="${crop.plantStage.plantStageName}"></div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <a class="btn btn-primary col m-2" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
-                        <a class="btn btn-danger col m-2" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                           th:action="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
+<div class="container">
+    <div class="row">
+        <div class="col" th:each="crop : ${crops}">
+            <div class="card" style="width: 18rem;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" class="card-img-top"
+                     alt="...">
+                <div class="card-body position-relative">
+                    <div>
+                        <h4 class="card card-title" th:text="${crop.cropName}"></h4>
                     </div>
-                </div>
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                This will delete it's harvests and personal observations. Delete?
-                            </div>
-                            <div class="modal-footer">
-                                <a type="button" class="btn btn-primary"
-                                   th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Yes</a>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <div>
+                        <h5 class="card-subtitle m-2 text-muted" th:text="${crop.sort.sortName}"></h5>
+                    </div>
+                    <div>
+                        <h6 class="card-subtitle m-2" th:text="${crop.plantStage.plantStageName}"></h6>
+                    </div>
+                    <div>
+                        <h6 class="card-subtitle m-2" th:text="${crop.isActive}">isActive: </h6>
+                    </div>
+                    <div>
+                        <h6 class="card-subtitle m-2" th:text="${crop.seedlingsNumber}">seedlingsNumber: </h6>
+                    </div>
+                    <div>
+                        <h6 class="card-subtitle m-2" th:text="${crop.soil.soilName}">Soil: </h6>
+                    </div>
+                    <div>
+                        <h6 class="card-subtitle m-2" th:text="${crop.location.locationName}">Location: </h6>
+                    </div>
+                    <div class="progress m-1" style="height: 25px;">
+                        <div class="progress-bar" th:style="'width:'+(${crop.plantStage.plantStageInPercents})+'%'"
+                             role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                             th:text="${crop.plantStage.plantStageName}"></div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <a class="btn btn-primary col m-2" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
+                            <a class="btn btn-danger col m-2" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                               th:action="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    This will delete it's harvests and personal observations. Delete?
+                                </div>
+                                <div class="modal-footer">
+                                    <a type="button" class="btn btn-primary"
+                                       th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Yes</a>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                </div>
                             </div>
                         </div>
                     </div>
