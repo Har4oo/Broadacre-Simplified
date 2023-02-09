@@ -54,11 +54,4 @@ public class PlantStage {
         this.plantStageInPercents = plantStageInPercents;
 
     }
-
-    @Override
-    public String toString() {
-        return "PlantStage{" +
-                "plantStageInPercents=" + plantStageInPercents +
-                '}';
-    }
 }
