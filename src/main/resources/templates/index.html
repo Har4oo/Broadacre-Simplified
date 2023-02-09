@@ -9,11 +9,11 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<div class="container">
-    <div class="row">
-        <div class="col" th:each="crop : ${crops}">
-            <div class="card" style="width: 18rem;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" class="card-img-top"
+<div>
+    <div class="row pr-5">
+        <div class="col col-lg-2 m-3 d-flex align-items-stretch" th:each="crop : ${crops}">
+            <div class="card">
+                <img src="https://www.economic.bg/web/files/articles/67887/narrow_image/thumb_834x469_santaclausjpeg.jpeg" class="card-img-top"
                      alt="...">
                 <div class="card-body position-relative">
                     <div>
