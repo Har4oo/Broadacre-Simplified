@@ -17,6 +17,7 @@ public class CropViewController {
     private PlantStageService plantStageService;
     private SortService sortService;
     private LocationService locationService;
+    private PersonalObservationService personalObservationService;
 
     @GetMapping("/createCrop")
     public String createCrop(Model model){
@@ -56,5 +57,11 @@ public class CropViewController {
     public String deleteCrop(@PathVariable long id){
         cropService.deleteCrop(id);
         return "redirect:/";
+    }
+    @GetMapping("/cropDescription/{id}")
+    public String cropDescription(Model model,@PathVariable long id){
+        model.addAttribute("crop",cropService.getCrop(id));
+        model.addAttribute("personalObservations",personalObservationService.getPersonalObservations());
+        return "/crop/cropDescription";
     }
 }

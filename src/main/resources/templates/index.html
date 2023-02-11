@@ -45,6 +45,7 @@
                     <div class="container">
                         <div class="row">
                             <a class="btn btn-primary col m-2" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
+                            <a class="btn btn-primary col m-2" th:href="@{'/crop/cropDescription/'+${crop.cropId}}">Description</a>
                             <a class="btn btn-danger col m-2" data-bs-toggle="modal" data-bs-target="#deleteModal"
                                th:action="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
                         </div>
