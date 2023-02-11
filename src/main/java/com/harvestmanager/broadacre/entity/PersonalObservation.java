@@ -13,8 +13,12 @@ public class PersonalObservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long personalObservationId;
 
+    @Column(nullable = false)
+    private String personalObservationName;
+
     @Column(nullable = false, length = 1000)
     private String description;
+
 
     @Column(nullable = false)
     @DateTimeFormat(pattern = "dd-MM-yyyy")
@@ -34,6 +38,14 @@ public class PersonalObservation {
 
     public void setPersonalObservationId(long personalObservationId) {
         this.personalObservationId = personalObservationId;
+    }
+
+    public String getPersonalObservationName() {
+        return personalObservationName;
+    }
+
+    public void setPersonalObservationName(String personalObservationName) {
+        this.personalObservationName = personalObservationName;
     }
 
     public String getDescription() {
