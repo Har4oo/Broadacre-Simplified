@@ -9,18 +9,12 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<div class="container-sm mt-3">
-    <div class="card text-center m-3">
-        <div class="card-body">
-            <h5 class="fw-light">You are currently looking at</h5>
-            <h4 class="card-title fw-bolder" th:text="${crop.cropName}"></h4>
-            <div>
-                <h5 class="card-subtitle m-2 text-muted" th:text="${crop.sort.sortName}"></h5>
-            </div>
-            <img class="rounded"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tomato.jpg/640px-Tomato.jpg"
-                 alt="*Photo here*" width="300" height="300">
+<div class="container-sm mb-5 mt-5 p-4 border border-primary rounded">
+    <div class="row text-center">
+        <div class="col">
             <div class="m-3">
+                <h5 class="fw-light">You are currently looking at</h5>
+                <h4 class="card-title fw-bolder" th:text="${crop.cropName}"></h4>
                 <h5 class="fw-light">State of growth</h5>
                 <div class="progress m-1" style="height: 25px;">
                     <div class="progress-bar" th:style="'width:'+(${crop.plantStage.plantStageInPercents})+'%'"
@@ -44,6 +38,11 @@
                 <h5 class="fw-light">Place of planting</h5>
                 <h4 class="card-subtitle fw-bolder" th:text="${crop.location.locationName}">Soil: </h4>
             </div>
+        </div>
+        <div class="col p-3 text-center">
+            <img class="rounded m-2"
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tomato.jpg/640px-Tomato.jpg"
+                 alt="*Photo here*" width="350" height="350"/>
         </div>
     </div>
 </div>
@@ -85,7 +84,8 @@
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne"
-                                    aria-expanded="true" aria-controls="collapseOne" th:text="${personalObservation.personalObservationName}">
+                                    aria-expanded="true" aria-controls="collapseOne"
+                                    th:text="${personalObservation.personalObservationName}">
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
