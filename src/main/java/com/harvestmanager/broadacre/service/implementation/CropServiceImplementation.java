@@ -23,7 +23,6 @@ public class CropServiceImplementation implements CropService {
 
     @Override
     public Crop getCrop(long id) {
-        System.out.println("Listing crop by ID given");
         return cropRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid id " + id));
     }
 
