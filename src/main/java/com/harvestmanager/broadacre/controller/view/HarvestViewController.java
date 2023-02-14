@@ -39,7 +39,7 @@ public class HarvestViewController {
     @GetMapping("/editHarvest/{id}")
     public String editHarvest(Model model, @PathVariable long id){
         model.addAttribute("harvest",harvestService.getHarvest(id));
-        model.addAttribute("crop",cropService.getCrops());
+        model.addAttribute("crops",cropService.getCrops());
         return "/harvest/editHarvest";
     }
     @PostMapping("/put/updateHarvest/{id}")

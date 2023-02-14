@@ -107,4 +107,20 @@ public class Crop {
     public void setSort(Sort sort) {
         this.sort = sort;
     }
+
+    public List<PersonalObservation> getPersonalObservations() {
+        return personalObservations;
+    }
+
+    public void setPersonalObservations(List<PersonalObservation> personalObservations) {
+        this.personalObservations = personalObservations;
+    }
+
+    public List<Harvest> getHarvests() {
+        return harvests;
+    }
+
+    public void setHarvests(List<Harvest> harvests) {
+        this.harvests = harvests;
+    }
 }
