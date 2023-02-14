@@ -79,4 +79,15 @@ public class PersonalObservation {
     public void setCrop(Crop crop) {
         this.crop = crop;
     }
+
+    @Override
+    public String toString() {
+        return "PersonalObservation{" +
+                "personalObservationId=" + personalObservationId +
+                ", personalObservationName='" + personalObservationName + '\'' +
+                ", description='" + description + '\'' +
+                ", dateCreated=" + dateCreated +
+                ", result='" + result + '\'' +
+                '}';
+    }
 }
