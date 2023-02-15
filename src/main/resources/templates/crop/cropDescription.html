@@ -9,12 +9,33 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<div class="container-sm mb-5 mt-5 p-4 border border-primary rounded">
-    <div class="row text-center">
+<div>
+    <h2 class="container-fluid text-center fw-bolder m-3" th:text="${crop.cropName}"></h2>
+</div>
+<div class="container-fluid mb-5 mt-5 border border-2 rounded">
+    <div class="row">
         <div class="col">
             <div class="m-3">
                 <h5 class="fw-light">You are currently looking at</h5>
                 <h4 class="card-title fw-bolder" th:text="${crop.cropName}"></h4>
+            </div>
+            <div class="m-3">
+                <h5 class="fw-light">Number of Seedlings</h5>
+                <h4 class="card-subtitle fw-bolder" th:text="${crop.seedlingsNumber}"></h4>
+            </div>
+            <div class="m-3">
+                <h5 class="fw-light">Is Active</h5>
+                <h4 class="card-subtitle fw-bolder" th:text="${crop.isActive}"></h4>
+            </div>
+            <div class="m-3">
+                <h5 class="fw-light">Type of Soil used</h5>
+                <h4 class="card-subtitle fw-bolder" th:text="${crop.soil.soilName}"></h4>
+            </div>
+            <div class="m-3">
+                <h5 class="fw-light">Place of planting</h5>
+                <h4 class="card-subtitle fw-bolder" th:text="${crop.location.locationName}"></h4>
+            </div>
+            <div class="m-3">
                 <h5 class="fw-light">State of growth</h5>
                 <div class="progress m-1" style="height: 25px;">
                     <div class="progress-bar" th:style="'width:'+(${crop.plantStage.plantStageInPercents})+'%'"
@@ -22,33 +43,20 @@
                          th:text="${crop.plantStage.plantStageName}"></div>
                 </div>
             </div>
-            <div class="m-3">
-                <h5 class="fw-light">Number of Seedlings</h5>
-                <h4 class="card-subtitle fw-bolder" th:text="${crop.seedlingsNumber}">seedlingsNumber: </h4>
-            </div>
-            <div class="m-3">
-                <h5 class="fw-light">Type of Soil used</h5>
-                <h4 class="card-subtitle fw-bolder" th:text="${crop.soil.soilName}">Soil: </h4>
-            </div>
-            <div class="m-3">
-                <h5 class="fw-light">Is Active</h5>
-                <h4 class="card-subtitle fw-bolder" th:text="${crop.isActive}">Soil: </h4>
-            </div>
-            <div class="m-3">
-                <h5 class="fw-light">Place of planting</h5>
-                <h4 class="card-subtitle fw-bolder" th:text="${crop.location.locationName}">Soil: </h4>
-            </div>
+        </div>
+        <div class="col">
+
         </div>
         <div class="col p-3 text-center">
             <img class="rounded m-2"
                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tomato.jpg/640px-Tomato.jpg"
-                 alt="*Photo here*" width="350" height="350"/>
+                 alt="*Photo here*" width="400" height="400"/>
         </div>
     </div>
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col">
+        <div class="col overflow-scroll">
             <h2 class="text-center">Crop's current Harvests section</h2>
             <div>
                 <a href="/harvest/createHarvest" type="button" class="btn btn-primary col m-2">Create Harvest</a>
@@ -63,16 +71,18 @@
                                 <h6 class="card-title">Kilograms gathered on this date:</h6>
                                 <p class="card-text" th:text="${harvest.kilograms}"></p>
                             </div>
-                            <a class="btn btn-primary"
-                               th:href="@{'/harvest/editHarvest/'+${harvest.harvestId}}">Edit</a>
-                            <a class="btn btn-danger"
-                               th:href="@{'/harvest/deleteHarvest/'+${harvest.harvestId}}">Delete</a>
+                            <div>
+                                <a class="btn btn-primary"
+                                   th:href="@{'/harvest/editHarvest/'+${harvest.harvestId}}">Edit</a>
+                                <a class="btn btn-danger"
+                                   th:href="@{'/harvest/deleteHarvest/'+${harvest.harvestId}}">Delete</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col overflow-scroll">
             <h2 class="text-center">Crop's current Personal Observations section</h2>
             <div>
                 <a href="/personalObservation/createPersonalObservation" type="button" class="btn btn-primary col m-2">Create
@@ -90,8 +100,28 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                              data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <text th:text="${personalObservation.description}"></text>
+                            <div class="accordion-body p-3">
+                                <div>
+                                    <div class="fw-light">Date of creation:</div>
+                                    <text class="fw-bolder" th:text="${personalObservation.dateCreated}"></text>
+                                </div>
+                                <div>
+                                    <div class="fw-light">Description:</div>
+                                    <text class="fw-bolder" th:text="${personalObservation.description}"></text>
+                                </div>
+                                <br>
+                                <div>
+                                    <div class="fw-light">Result</div>
+                                    <text class="fw-bolder" th:text="${personalObservation.result}"></text>
+                                </div>
+                                <br>
+                                <div class="pull-right">
+                                    <a class="btn btn-primary"
+                                       th:href="@{'/personalObservation/editPersonalObservation/'+${personalObservation.personalObservationId}}">Edit</a>
+                                    <a class="btn btn-primary" th:href="@{'/personalObservation/viewPersonalObservation/'+${personalObservation.personalObservationId}}">View</a>
+                                    <a class="btn btn-danger"
+                                       th:href="@{'/personalObservation/deletePersonalObservation/'+${personalObservation.personalObservationId}}">Delete</a>
+                                </div>
                             </div>
                         </div>
                     </div>
