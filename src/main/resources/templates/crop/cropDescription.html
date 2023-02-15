@@ -9,8 +9,11 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<div class="container-sm mb-5 mt-5 border border-2 rounded">
-    <div class="row text-center">
+<div>
+    <h2 class="container-fluid text-center fw-bolder m-3" th:text="${crop.cropName}"></h2>
+</div>
+<div class="container-fluid mb-5 mt-5 border border-2 rounded">
+    <div class="row">
         <div class="col">
             <div class="m-3">
                 <h5 class="fw-light">You are currently looking at</h5>
@@ -40,6 +43,9 @@
                          th:text="${crop.plantStage.plantStageName}"></div>
                 </div>
             </div>
+        </div>
+        <div class="col">
+
         </div>
         <div class="col p-3 text-center">
             <img class="rounded m-2"
