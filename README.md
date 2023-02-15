@@ -43,8 +43,9 @@ After execution the tables in already created **harvestmanager** database will b
 
 1. Inspecting the whole crop information about it's sort, plant stage, soil quality, location, whether it's active, seedlings number and etc.
 2. Page allowing you to focus on crop's harvests and personal observations
-2. Easy access to other pages such as locations, sorts, soils and so on via the navbar
-3. HarvestManager allows you to:  
+3. Photos added by URL (because of copyright reasons) paste for better idea of how plants or/and crops look like. Those photos are shown on cards and in their information page
+4. Easy access to other pages such as locations, sorts, soils and so on via the navbar
+5. HarvestManager allows you to:  
    * Manipulate every data possible
    * Tracking the soil quality from planting to harvesting
    * Giving the plant place information
