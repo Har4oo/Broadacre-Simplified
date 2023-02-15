@@ -14,10 +14,10 @@
         <div class="col col-lg-2 m-3 d-flex align-items-stretch" th:each="crop : ${crops}">
             <div class="card">
                 <img class="card-img-top"
-                     alt="IMAGE HERE">
+                     alt="IMAGE HERE" th:src="${crop.photoUrl}" style="height: 400px">
                 <div class="card-body position-relative">
                     <div>
-                        <h4 class="card card-title" th:text="${crop.cropName}"></h4>
+                        <h4 class="card-title" th:text="${crop.cropName}"></h4>
                     </div>
                     <div>
                         <h5 class="card-subtitle m-2 text-muted" th:text="${crop.sort.sortName}"></h5>

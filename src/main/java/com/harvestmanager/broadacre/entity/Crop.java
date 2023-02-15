@@ -18,6 +18,9 @@ public class Crop {
     private int seedlingsNumber;
     @Column(nullable = false)
     private boolean active;
+
+    @Column
+    private String photoUrl;
     @ManyToOne
     @JoinColumn(nullable = false,name = "soil_id")
     private Soil soil;
@@ -74,6 +77,14 @@ public class Crop {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public Soil getSoil() {

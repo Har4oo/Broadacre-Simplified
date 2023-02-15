@@ -52,10 +52,10 @@
                 <h5 class="fw-bolder m-4" th:text="${crop.sort.sortDescription}"></h5>
             </div>
         </div>
-        <div class="col p-3 text-center">
+        <div class="col p-3 text-center" style="text-align: center">
             <img class="rounded m-2"
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Tomato.jpg/640px-Tomato.jpg"
-                 alt="*Photo here*" width="400" height="400"/>
+                 th:src="${crop.photoUrl}"
+                 alt="*Photo here*" style="height: 300px"/>
         </div>
     </div>
 </div>
