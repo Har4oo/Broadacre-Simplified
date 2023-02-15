@@ -15,6 +15,9 @@ public class Sort {
     @Column(nullable = false)
     private String origin;
 
+    @Column(nullable = false, length = 1000)
+    private String sortDescription;
+
     @OneToMany(mappedBy = "sort")
     @JsonIgnore
     @Column(nullable = false)
@@ -42,6 +45,14 @@ public class Sort {
 
     public void setOrigin(String origin) {
         this.origin = origin;
+    }
+
+    public String getSortDescription() {
+        return sortDescription;
+    }
+
+    public void setSortDescription(String sortDescription) {
+        this.sortDescription = sortDescription;
     }
 
     public List<Crop> getCrops() {

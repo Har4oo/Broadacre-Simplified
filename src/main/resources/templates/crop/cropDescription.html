@@ -10,7 +10,7 @@
 <body>
 <header th:replace="fragments :: header"></header>
 <div>
-    <h2 class="container-fluid text-center fw-bolder m-3" th:text="${crop.cropName}"></h2>
+    <h1 class="container-fluid text-center fw-bolder m-3" th:text="${crop.cropName}"></h1>
 </div>
 <div class="container-fluid mb-5 mt-5 border border-2 rounded">
     <div class="row">
@@ -44,8 +44,13 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-
+        <div class="col text-center">
+            <div class="">
+                <h4 class="fw-normal m-3" th:text="${crop.sort.sortName}"></h4>
+            </div>
+            <div class="">
+                <h5 class="fw-bolder m-4" th:text="${crop.sort.sortDescription}"></h5>
+            </div>
         </div>
         <div class="col p-3 text-center">
             <img class="rounded m-2"
@@ -69,7 +74,7 @@
                                 th:text="${#temporals.format(harvest.dateCreated,'dd-MM-yyyy')}"></h5>
                             <div>
                                 <h6 class="card-title">Kilograms gathered on this date:</h6>
-                                <p class="card-text" th:text="${harvest.kilograms}"></p>
+                                <h5 class="card-text fw-bolder" th:text="${harvest.kilograms}"></h5>
                             </div>
                             <div>
                                 <a class="btn btn-primary"
@@ -118,7 +123,8 @@
                                 <div class="pull-right">
                                     <a class="btn btn-primary"
                                        th:href="@{'/personalObservation/editPersonalObservation/'+${personalObservation.personalObservationId}}">Edit</a>
-                                    <a class="btn btn-primary" th:href="@{'/personalObservation/viewPersonalObservation/'+${personalObservation.personalObservationId}}">View</a>
+                                    <a class="btn btn-primary"
+                                       th:href="@{'/personalObservation/viewPersonalObservation/'+${personalObservation.personalObservationId}}">View</a>
                                     <a class="btn btn-danger"
                                        th:href="@{'/personalObservation/deletePersonalObservation/'+${personalObservation.personalObservationId}}">Delete</a>
                                 </div>
