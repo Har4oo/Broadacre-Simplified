@@ -12,14 +12,20 @@
 <header th:replace="fragments :: header"></header>
 
 <h4>Product Type Edit:</h4>
-<div class="col-6">
-    <form th:action="@{/soil/put/updateSoil/{id}(id=${soil.soilId})}" th:object="${soil}" method="post">
-        <div class="form-group">
-            <label for="type">Soil Name</label>
-            <input class="form-control" type="text" th:field="*{soilName}" placeholder="Soil" id="type">
-        </div>
-        <button type="submit" class="btn btn-primary">Update Soil</button>
-    </form>
+<div>
+    <h3 class="m-3 text-center">Editing Soil</h3>
+    <div class="col">
+        <form th:action="@{/soil/put/updateSoil/{id}(id=${soil.soilId})}" th:object="${soil}" method="post">
+            <div class="form-group">
+                <label for="type">Soil Name</label>
+                <input class="form-control" type="text" th:field="*{soilName}" placeholder="Soil" id="type">
+            </div>
+            <div class="d-flex flex-row-reverse bd-highlight">
+                <a type="reset" class="btn btn-secondary m-2" href="/soil">Cancel</a>
+                <button type="submit" class="btn btn-primary m-2">Save Soil</button>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

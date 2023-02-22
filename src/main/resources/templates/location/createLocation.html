@@ -9,14 +9,20 @@
 </head>
 <header th:replace="fragments :: header"></header>
 <body>
-<h4>Create new Location</h4>
-<div class="col-6">
-    <form th:action="@{/location/post/createLocation}" th:object="${location}" method="post">
-        <div class="form-group">
-            <input class="form-control" type="text" th:field="*{locationName}" placeholder="Location Name" id="type">
-        </div>
-        <button type="submit" class="btn btn-primary">Save Location</button>
-    </form>
+<div class="container-sm">
+    <h3 class="m-3 text-center">Create new Location</h3>
+    <div class="col">
+        <form th:action="@{/location/post/createLocation}" th:object="${location}" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" th:field="*{locationName}" placeholder="Location Name"
+                       id="type">
+            </div>
+            <div class="d-flex flex-row-reverse bd-highlight">
+                <a type="reset" class="btn btn-secondary m-2" href="/location">Cancel</a>
+                <button type="submit" class="btn btn-primary m-2">Save Location</button>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

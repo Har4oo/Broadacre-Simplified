@@ -9,26 +9,26 @@
 </head>
 <body>
 <header th:replace="fragments :: header"></header>
-<div class="table-responsive">
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Soil Name</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="soil : ${soils}">
-            <td th:text="${soil.soilId}"></td>
-            <td th:text="${soil.soilName}"></td>
-            <td><a class="btn btn-info" th:href="@{'/soil/editSoil/'+${soil.soilId}}">Edit</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/soil/deleteSoil/'+${soil.soilId}}">Delete</a>
-        </tr>
-        </tbody>
-    </table>
+<div class="container-lg mt-3">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Soil Name</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="soil : ${soils}">
+                <td th:text="${soil.soilName}"></td>
+                <td><a class="btn btn-primary" th:href="@{'/soil/editSoil/'+${soil.soilId}}">Edit</a></td>
+                <td><a class="btn btn-danger" th:href="@{'/soil/deleteSoil/'+${soil.soilId}}">Delete</a>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/soil/createSoil" type="button" class="btn btn-primary btn-lg mt-2">Create Soil</a>
 </div>
-<a href="/soil/createSoil" type="button" class="btn btn-primary btn-lg">Create Soil</a>
 </body>
 </html>
