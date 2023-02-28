@@ -19,7 +19,7 @@ public class Crop {
     @Column(nullable = false)
     private boolean active;
 
-    @Column
+    @Column(length = 1500)
     private String photoUrl;
     @ManyToOne
     @JoinColumn(nullable = false,name = "soil_id")
