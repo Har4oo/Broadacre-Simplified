@@ -46,26 +46,28 @@
                         <div class="row">
                             <a class="btn btn-primary col m-2" th:href="@{'/crop/editCrop/'+${crop.cropId}}">Edit</a>
                             <a class="btn btn-primary col m-2" th:href="@{'/crop/cropDescription/'+${crop.cropId}}">Description</a>
-                            <a class="btn btn-danger col m-2" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                               th:action="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    This will delete it's harvests and personal observations. Delete?
-                                </div>
-                                <div class="modal-footer">
-                                    <a type="button" class="btn btn-primary"
-                                       th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Yes</a>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <a class="btn btn-danger col m-2" data-bs-toggle="modal"
+                               th:attr="data-bs-target=${'#deleteModal' + crop.cropId}"
+                               th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Delete</a>
+                            <div class="modal fade"
+                                 th:attr="id=${'deleteModal' + crop.cropId}"
+                                 tabindex="-1" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            This will delete it's harvests and personal observations. Delete?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a type="button" class="btn btn-primary" th:href="@{'/crop/deleteCrop/'+${crop.cropId}}">Yes</a>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +77,6 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
 
 </body>
 </html>
