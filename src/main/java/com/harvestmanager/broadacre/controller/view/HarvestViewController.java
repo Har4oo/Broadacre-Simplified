@@ -1,5 +1,6 @@
 package com.harvestmanager.broadacre.controller.view;
 
+import com.harvestmanager.broadacre.entity.Crop;
 import com.harvestmanager.broadacre.entity.Harvest;
 import com.harvestmanager.broadacre.entity.Location;
 import com.harvestmanager.broadacre.service.CropService;
@@ -17,39 +18,47 @@ public class HarvestViewController {
     private CropService cropService;
 
     @GetMapping
-    public String harvestView(Model model){
+    public String harvestView(Model model) {
         System.out.println(harvestService.getHarvests().toString());
-        model.addAttribute("harvests",harvestService.getHarvests());
-        model.addAttribute("crops",cropService.getCrops());
+        model.addAttribute("harvests", harvestService.getHarvests());
+        model.addAttribute("crops", cropService.getCrops());
         return "/harvest/harvest";
     }
 
-    @GetMapping("/createHarvest")
-    public String createHarvest(Model model){
-        model.addAttribute("harvest",new Harvest());
-        model.addAttribute("crops",cropService.getCrops());
+    @GetMapping("/createHarvest/{id}")
+    public String createHarvest(Model model, @PathVariable long id) {
+        Harvest harvest = new Harvest();
+        Crop crop = cropService.getCrop(id);
+
+        harvest.setCrop(crop);
+
+        model.addAttribute("harvest", harvest);
+        model.addAttribute("crop",crop);
         return "/harvest/createHarvest";
     }
 
     @PostMapping("/post/createHarvest")
-    public String createHarvest(@ModelAttribute Harvest harvest){
+    public String createHarvest(@ModelAttribute Harvest harvest) {
         harvestService.createHarvest(harvest);
-        return "redirect:/harvest";
+        return "redirect:/crop/cropDescription/" + harvest.getCrop().getCropId();
     }
+
     @GetMapping("/editHarvest/{id}")
-    public String editHarvest(Model model, @PathVariable long id){
-        model.addAttribute("harvest",harvestService.getHarvest(id));
-        model.addAttribute("crops",cropService.getCrops());
+    public String editHarvest(Model model, @PathVariable long id) {
+        model.addAttribute("harvest", harvestService.getHarvest(id));
+        model.addAttribute("crops", cropService.getCrops());
         return "/harvest/editHarvest";
     }
+
     @PostMapping("/put/updateHarvest/{id}")
-    public String updateHarvest(@PathVariable long id, @ModelAttribute Harvest harvest){
+    public String updateHarvest(@PathVariable long id, @ModelAttribute Harvest harvest) {
         System.out.println("updating value");
-        harvestService.updateHarvest(harvest,id);
+        harvestService.updateHarvest(harvest, id);
         return "redirect:/harvest";
     }
+
     @GetMapping("/deleteHarvest/{id}")
-    public String deleteHarvest(@PathVariable long id){
+    public String deleteHarvest(@PathVariable long id) {
         harvestService.deleteHarvest(id);
         return "redirect:/harvest";
     }
