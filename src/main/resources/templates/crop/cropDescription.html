@@ -90,7 +90,7 @@
         <div class="col overflow-scroll">
             <h2 class="text-center">Crop's current Personal Observations section</h2>
             <div>
-                <a href="/personalObservation/createPersonalObservation" type="button" class="btn btn-primary col m-2">Create
+                <a th:href="@{'/personalObservation/createPersonalObservation/' + ${crop.cropId}}" type="button" class="btn btn-primary col m-2">Create
                     Personal Observation</a>
             </div>
             <div class="accordion" id="accordionExample">

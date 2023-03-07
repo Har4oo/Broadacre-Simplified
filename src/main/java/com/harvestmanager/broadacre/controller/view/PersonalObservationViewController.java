@@ -1,5 +1,6 @@
 package com.harvestmanager.broadacre.controller.view;
 
+import com.harvestmanager.broadacre.entity.Crop;
 import com.harvestmanager.broadacre.entity.Harvest;
 import com.harvestmanager.broadacre.entity.Location;
 import com.harvestmanager.broadacre.entity.PersonalObservation;
@@ -26,17 +27,21 @@ public class PersonalObservationViewController {
         return "/personalobservation/personalObservation";
     }
 
-    @GetMapping("/createPersonalObservation")
-    public String createPersonalObservation(Model model){
-        model.addAttribute("personalObservation",new PersonalObservation());
-        model.addAttribute("crops",cropService.getCrops());
+    @GetMapping("/createPersonalObservation/{id}")
+    public String createPersonalObservation(Model model, @PathVariable long id){
+        PersonalObservation personalObservation = new PersonalObservation();
+        Crop crop = cropService.getCrop(id);
+        personalObservation.setCrop(crop);
+        System.out.println("Creating personal observation with values: "+personalObservation.getCrop());
+        model.addAttribute("personalObservation",personalObservation);
         return "/personalobservation/createPersonalObservation";
     }
 
     @PostMapping("/post/createPersonalObservation")
     public String createPersonalObservation(@ModelAttribute PersonalObservation personalObservation){
+        System.out.println("Crop's value of this personalObservation: "+personalObservation.getCrop());
         personalObservationService.createPersonalObservation(personalObservation);
-        return "redirect:/personalObservation";
+        return "redirect:/crop/cropDescription/"+personalObservation.getCrop().getCropId();
     }
     @GetMapping("/editPersonalObservation/{id}")
     public String editPersonalObservation(Model model, @PathVariable long id){
