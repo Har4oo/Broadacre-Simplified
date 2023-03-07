@@ -10,27 +10,24 @@
 <header th:replace="fragments :: header"></header>
 <body>
 <div class="container-sm">
-    <h3 class="m-3 text-center">Create new Harvest</h3>
     <div class="col">
         <form th:action="@{/harvest/post/createHarvest}" th:object="${harvest}" method="post">
+            <input type="hidden" th:field="*{crop}"/>
+            <h3 class="m-3 text-center">Create new Harvest for
+                <nobr th:text="${harvest.crop.cropName}"></nobr>
+            </h3>
             <div class="form-group m-4">
                 <h6>Kilograms gathered: </h6>
                 <input class="form-control" type="text" th:field="*{kilograms}" placeholder="Kilograms" id="kilograms">
             </div>
             <div class="form-group m-4">
-                <h6>Date of creation: </h6>
+                <h6>Date created /dd-mm-yyyy/</h6>
                 <input class="form-control" type="text" th:field="*{dateCreated}" placeholder="Date Created"
                        id="dateCreated">
             </div>
-            <div>
-                <h6>Crop that is going to be harvested: </h6>
-                <select class="form-select mb-3" th:field="*{crop}">
-                    <option th:each="crop : ${crops}" th:value="${crop.cropId}" th:text="${crop.cropName}"></option>
-                </select>
-            </div>
             <div class="d-flex flex-row-reverse bd-highlight">
-                <a type="reset" class="btn btn-secondary m-2" href="/">Cancel</a>
-                <a type="submit" class="btn btn-primary m-2">Save Harvest</a>
+                <a class="btn btn-secondary m-2" th:href="@{'/crop/cropDescription/'+${crop.cropId}}">Cancel</a>
+                <button type="submit" class="btn btn-primary m-2">Save Harvest</button>
             </div>
         </form>
     </div>
