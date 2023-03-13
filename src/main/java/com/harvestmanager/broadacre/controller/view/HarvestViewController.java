@@ -40,15 +40,21 @@ public class HarvestViewController {
 
     @PostMapping("/post/createHarvest")
     public String createHarvest(@ModelAttribute Harvest harvest) {
-        System.out.println("Creating new Harvest");
+        System.out.println("Creating new Harvest with values: " + harvest.toString());
         harvestService.createHarvest(harvest);
         return "redirect:/crop/cropDescription/" + harvest.getCrop().getCropId();
     }
 
     @GetMapping("/editHarvest/{id}")
     public String editHarvest(Model model, @PathVariable long id) {
-        model.addAttribute("harvest", harvestService.getHarvest(id));
-        model.addAttribute("crops", cropService.getCrops());
+        System.out.println("Editing harvest with values: " + harvestService.getHarvest(id));
+        Harvest harvest = harvestService.getHarvest(id);
+        Crop crop = cropService.getCrop(harvest.getCrop().getCropId());
+
+        harvest.setCrop(crop);
+
+        model.addAttribute("harvest", harvest);
+        model.addAttribute("crop", crop);
         return "/harvest/editHarvest";
     }
 
@@ -56,7 +62,7 @@ public class HarvestViewController {
     public String updateHarvest(@PathVariable long id, @ModelAttribute Harvest harvest) {
         System.out.println("updating value");
         harvestService.updateHarvest(harvest, id);
-        return "redirect:/harvest";
+        return "redirect:/crop/cropDescription/" + harvest.getCrop().getCropId();
     }
 
     @GetMapping("/deleteHarvest/{id}")
