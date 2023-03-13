@@ -108,7 +108,7 @@
                             <div class="accordion-body p-3">
                                 <div>
                                     <div class="fw-light">Date of creation:</div>
-                                    <text class="fw-bolder" th:text="${personalObservation.dateCreated}"></text>
+                                    <text class="fw-bolder" th:text="${#temporals.format(personalObservation.dateCreated,'dd-MM-yyyy')}"></text>
                                 </div>
                                 <div>
                                     <div class="fw-light">Description:</div>
@@ -123,8 +123,6 @@
                                 <div class="pull-right">
                                     <a class="btn btn-primary"
                                        th:href="@{'/personalObservation/editPersonalObservation/'+${personalObservation.personalObservationId}}">Edit</a>
-                                    <a class="btn btn-primary"
-                                       th:href="@{'/personalObservation/viewPersonalObservation/'+${personalObservation.personalObservationId}}">View</a>
                                     <a class="btn btn-danger"
                                        th:href="@{'/personalObservation/deletePersonalObservation/'+${personalObservation.personalObservationId}}">Delete</a>
                                 </div>
