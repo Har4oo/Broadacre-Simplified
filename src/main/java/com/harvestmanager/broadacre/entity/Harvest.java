@@ -17,7 +17,7 @@ public class Harvest {
     private int kilograms;
 
     @Column(nullable = false)
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
     private LocalDate dateCreated;
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
