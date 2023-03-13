@@ -27,10 +27,6 @@
                 <h6>Date created /dd-mm-yyyy/</h6>
                 <input class="form-control" type="text" th:field="*{dateCreated}" placeholder="Pick a date"
                        id="datepicker"/>
-                <script>
-                $('#datepicker').datepicker();
-
-                </script>
             </div>
             <div class="d-flex flex-row-reverse bd-highlight">
                 <a class="btn btn-secondary m-2" th:href="@{'/crop/cropDescription/'+${crop.cropId}}">Cancel</a>
@@ -40,5 +36,9 @@
         </form>
     </div>
 </div>
+<script>
+  $('#datepicker').datepicker();
+
+</script>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class PersonalObservation {
 
 
     @Column(nullable = false)
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
     private LocalDate dateCreated;
 
     @Column(nullable = false, length = 500)
