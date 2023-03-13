@@ -27,6 +27,7 @@ public class HarvestViewController {
 
     @GetMapping("/createHarvest/{id}")
     public String createHarvest(Model model, @PathVariable long id) {
+        System.out.println("Attempt to create a new Harvest");
         Harvest harvest = new Harvest();
         Crop crop = cropService.getCrop(id);
 
@@ -39,6 +40,7 @@ public class HarvestViewController {
 
     @PostMapping("/post/createHarvest")
     public String createHarvest(@ModelAttribute Harvest harvest) {
+        System.out.println("Creating new Harvest");
         harvestService.createHarvest(harvest);
         return "redirect:/crop/cropDescription/" + harvest.getCrop().getCropId();
     }
