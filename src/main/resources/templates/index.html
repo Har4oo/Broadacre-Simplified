@@ -23,19 +23,24 @@
                         <h5 class="card-subtitle m-2 text-muted" th:text="${crop.sort.sortName}"></h5>
                     </div>
                     <div>
-                        <h6 class="card-subtitle m-2" th:text="${crop.plantStage.plantStageName}"></h6>
+                        <h5 class="card-subtitle m-2 fw-light">Growing status:
+                            <nobr class="fw-bold" th:text="${crop.isActive}"></nobr>
+                        </h5>
                     </div>
                     <div>
-                        <h6 class="card-subtitle m-2" th:text="${crop.isActive}">isActive: </h6>
+                        <h5 class="card-subtitle m-2 fw-light">Number of seedlings:
+                            <nobr class="fw-bold" th:text="${crop.seedlingsNumber}"></nobr>
+                        </h5>
                     </div>
                     <div>
-                        <h6 class="card-subtitle m-2" th:text="${crop.seedlingsNumber}">seedlingsNumber: </h6>
+                        <h5 class="card-subtitle m-2 fw-light">Soil type:
+                            <nobr class="fw-bold" th:text="${crop.soil.soilName}"></nobr>
+                        </h5>
                     </div>
                     <div>
-                        <h6 class="card-subtitle m-2" th:text="${crop.soil.soilName}">Soil: </h6>
-                    </div>
-                    <div>
-                        <h6 class="card-subtitle m-2" th:text="${crop.location.locationName}">Location: </h6>
+                        <h5 class="card-subtitle m-2 fw-light">Place:
+                            <nobr class="fw-bold" th:text="${crop.location.locationName}"></nobr>
+                        </h5>
                     </div>
                     <div class="progress m-1" style="height: 25px;">
                         <div class="progress-bar" th:style="'width:'+(${crop.plantStage.plantStageInPercents})+'%'"
