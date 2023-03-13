@@ -29,10 +29,13 @@ public class PersonalObservationViewController {
 
     @GetMapping("/createPersonalObservation/{id}")
     public String createPersonalObservation(Model model, @PathVariable long id) {
+        System.out.println("Attempt to create new Personal Observation");
         PersonalObservation personalObservation = new PersonalObservation();
         Crop crop = cropService.getCrop(id);
+
         personalObservation.setCrop(crop);
-        System.out.println("Creating personal observation with values: " + personalObservation.getCrop());
+
+        System.out.println("Creating personal observation with values: " + personalObservation.toString());
         model.addAttribute("personalObservation", personalObservation);
         model.addAttribute("crop",crop);
         return "/personalobservation/createPersonalObservation";
@@ -40,15 +43,21 @@ public class PersonalObservationViewController {
 
     @PostMapping("/post/createPersonalObservation")
     public String createPersonalObservation(@ModelAttribute PersonalObservation personalObservation) {
-        System.out.println("Crop's value of this personalObservation: " + personalObservation.getCrop());
+        System.out.println("Creating new Personal Observation with values: " + personalObservation.toString());
         personalObservationService.createPersonalObservation(personalObservation);
         return "redirect:/crop/cropDescription/" + personalObservation.getCrop().getCropId();
     }
 
     @GetMapping("/editPersonalObservation/{id}")
     public String editPersonalObservation(Model model, @PathVariable long id) {
-        model.addAttribute("personalObservation", personalObservationService.getPersonalObservation(id));
-        model.addAttribute("crops", cropService.getCrops());
+        System.out.println("Editing Personal Observation with values: " + personalObservationService.getPersonalObservation(id));
+        PersonalObservation personalObservation = personalObservationService.getPersonalObservation(id);
+        Crop crop = cropService.getCrop(personalObservation.getCrop().getCropId());
+
+        personalObservation.setCrop(crop);
+
+        model.addAttribute("personalObservation", personalObservation);
+        model.addAttribute("crop", crop);
         return "/personalobservation/editPersonalObservation";
     }
 
