@@ -67,7 +67,9 @@ public class HarvestViewController {
 
     @GetMapping("/deleteHarvest/{id}")
     public String deleteHarvest(@PathVariable long id) {
+        System.out.println("Deleting Harvest with values: "+harvestService.getHarvest(id).toString());
+        long cropId = harvestService.getHarvest(id).getCrop().getCropId();
         harvestService.deleteHarvest(id);
-        return "redirect:/harvest";
+        return "redirect:/crop/cropDescription/" + cropId;
     }
 }
