@@ -70,8 +70,10 @@ public class PersonalObservationViewController {
 
     @GetMapping("/deletePersonalObservation/{id}")
     public String deletePersonalObservation(@PathVariable long id) {
+        System.out.println("Deleting personal observation with values: "+personalObservationService.getPersonalObservation(id).toString());
+        long cropId = personalObservationService.getPersonalObservation(id).getCrop().getCropId();
         personalObservationService.deletePersonalObservation(id);
-        return "redirect:/personalObservation";
+        return "redirect:/crop/cropDescription/" + cropId;
     }
 
     @GetMapping("/viewPersonalObservation/{id}")
