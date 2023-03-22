@@ -15,6 +15,8 @@ public class CropViewController {
     private CropService cropService;
     private SoilService soilService;
     private PlantStageService plantStageService;
+
+    private CropTypeService cropTypeService;
     private SortService sortService;
     private LocationService locationService;
     private PersonalObservationService personalObservationService;
@@ -23,20 +25,33 @@ public class CropViewController {
     @GetMapping("/createCrop")
     public String createCrop(Model model) {
         System.out.println("going to create crop html");
-        model.addAttribute("crop", new Crop());
+        model.addAttribute("crop", new CropDTO());
         model.addAttribute("soils", soilService.getSoils());
-        model.addAttribute("sorts", sortService.getSorts());
         model.addAttribute("locations", locationService.getLocations());
         model.addAttribute("plantStages", plantStageService.getPlantStages());
+        model.addAttribute("cropTypes", cropTypeService.getCropTypes());
+        model.addAttribute("sorts", sortService.getSorts());
+        System.out.println(model.toString());
+        return "/crop/createCrop";
+    }
+
+    @GetMapping("/filterSort/{id}")
+    public String createFilteredCrop(Model model, @PathVariable long id) {
+      //  model.addAttribute("crop", new Crop());
+        model.addAttribute("soils", soilService.getSoils());
+        model.addAttribute("locations", locationService.getLocations());
+        model.addAttribute("plantStages", plantStageService.getPlantStages());
+        model.addAttribute("cropTypes", cropTypeService.getCropTypes());
+        model.addAttribute("sorts", sortService.getSort(id));
         System.out.println(model.toString());
         return "/crop/createCrop";
     }
 
     @PostMapping("/post/createCrop")
-    public String createCrop(@ModelAttribute Crop crop) {
+    public String createCrop(@ModelAttribute CropDTO crop) {
         System.out.println("created crop: " + crop);
         System.out.println("crop created");
-        cropService.createCrop(crop);
+        cropService.createCrop(new Crop(crop, sortService.getSort(crop.getSortId())));
         return "redirect:/";
     }
 
