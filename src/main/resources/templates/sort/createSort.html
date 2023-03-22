@@ -17,6 +17,12 @@
                 <h6>Name your sort: </h6>
                 <input class="form-control" type="text" th:field="*{sortName}" placeholder="Sort Name" id="sortName">
             </div>
+            <div>
+                <h6>Select your sort's crop type</h6>
+                <select class="form-select mb-3" aria-label="Crop's sort" th:field="*{cropType}">
+                    <option th:each="cropType : ${cropTypes}" th:value="${cropType.cropTypeId}" th:text="${cropType.cropTypeName}"></option>
+                </select>
+            </div>
             <div class="form-group m-4">
                 <h6>Where the sort is from: </h6>
                 <input class="form-control" type="text" th:field="*{origin}" placeholder="Sort origin" id="sortOrigin">
