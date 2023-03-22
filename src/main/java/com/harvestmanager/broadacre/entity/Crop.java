@@ -160,4 +160,22 @@ public class Crop {
     public void setHarvests(List<Harvest> harvests) {
         this.harvests = harvests;
     }
+
+    @Override
+    public String toString() {
+        return "Crop{" +
+                "cropId=" + cropId +
+                ", cropName='" + cropName + '\'' +
+                ", seedlingsNumber=" + seedlingsNumber +
+                ", active=" + active +
+                ", photoUrl='" + photoUrl + '\'' +
+                ", soil=" + soil +
+                ", plantStage=" + plantStage +
+                ", location=" + location +
+                ", cropType=" + cropType +
+                ", sort=" + sort +
+                ", personalObservations=" + personalObservations +
+                ", harvests=" + harvests +
+                '}';
+    }
 }
