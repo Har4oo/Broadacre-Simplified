@@ -13,14 +13,12 @@
     <h3 class="m-3 text-center">Editing crop</h3>
     <div class="col">
         <form th:action="@{/crop/put/updateCrop/{id}(id=${crop.cropId})}" th:object="${crop}" method="post">
+            <input type="hidden" th:field="*{cropType}"/>
+            <input type="hidden" th:field="*{sort}"/>
+            <input type="hidden" th:field="*{seedlingsNumber}"/>
             <div class="form-group m-4">
                 <h6>Name your crop: </h6>
                 <input class="form-control" type="text" th:field="*{cropName}" placeholder="Crop Name" id="cropName">
-            </div>
-            <div class="form-group m-4">
-                <h6>Number or seedlings growing: </h6>
-                <input class="form-control" type="text" th:field="*{seedlingsNumber}" placeholder="Seedlings number"
-                       id="cropSeedlings">
             </div>
             <div class="form-group m-4">
                 <h6>Is it currently growing</h6>
@@ -45,12 +43,6 @@
                 <h6>Select crop's soil type used</h6>
                 <select class="form-select mb-3" aria-label="Soil type" th:field="*{soil}">
                     <option th:each="soil : ${soils}" th:value="${soil.soilId}" th:text="${soil.soilName}"></option>
-                </select>
-            </div>
-            <div>
-                <h6>Select your crop's sort</h6>
-                <select class="form-select mb-3" aria-label="Crop's sort" th:field="*{sort}">
-                    <option th:each="sort : ${sorts}" th:value="${sort.sortId}" th:text="${sort.sortName}"></option>
                 </select>
             </div>
             <div>
