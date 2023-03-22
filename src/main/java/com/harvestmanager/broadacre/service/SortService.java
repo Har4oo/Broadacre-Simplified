@@ -9,5 +9,6 @@ public interface SortService {
     Sort getSort(long id);
     Sort createSort(Sort sort);
     Sort updateSort(Sort sort, long id);
+    List<Sort> getSortByCropTypeId(long id);
     void deleteSort(long id);
 }

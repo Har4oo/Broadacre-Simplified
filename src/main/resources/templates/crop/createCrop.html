@@ -48,9 +48,14 @@
                 </select>
             </div>
             <div>
+                <h6>Select your crop's crop type</h6>
+                <select class="form-select mb-3" id="ide1" aria-label="Crop's sort" th:field="*{cropType}">
+                    <option th:each="cropType : ${cropTypes}" th:value="${cropType.cropTypeId}" th:text="${cropType.cropTypeName}"></option>
+                </select>
+            </div>
+            <div>
                 <h6>Select your crop's sort</h6>
-                <select class="form-select mb-3" aria-label="Crop's sort" th:field="*{sort}">
-                    <option th:each="sort : ${sorts}" th:value="${sort.sortId}" th:text="${sort.sortName}"></option>
+                <select class="form-select mb-3" id="versionContent" aria-label="Crop's sort" th:field="*{sortId}">
                 </select>
             </div>
             <div>
@@ -71,6 +76,28 @@
                 <a type="reset" class="btn btn-secondary m-2" href="/">Cancel</a>
                 <button type="submit" class="btn btn-primary m-2">Save Crop</button>
             </div>
+            <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script>
+        $(document).ready(function() {
+            $("#ide1").change(function() {
+                sendAjaxRequest();
+            });
+        });
+    </script>
+            <script>
+        function sendAjaxRequest() {
+            let ide = $("#ide1").val();
+            $.get("/api/sort/filter/" + ide, function( data ) {
+                $("#versionContent").empty();
+                data.forEach(function(item) {
+                    let option = "<option value=" + item.sortId + ">"+item.sortName+"</option>";
+                    $("#versionContent").append(option);
+                });
+            });
+        }
+    </script>
+
         </form>
     </div>
 </div>

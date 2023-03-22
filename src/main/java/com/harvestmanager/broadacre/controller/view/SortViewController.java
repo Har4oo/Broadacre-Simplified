@@ -4,10 +4,7 @@ import com.harvestmanager.broadacre.entity.Location;
 import com.harvestmanager.broadacre.entity.PlantStage;
 import com.harvestmanager.broadacre.entity.Soil;
 import com.harvestmanager.broadacre.entity.Sort;
-import com.harvestmanager.broadacre.service.LocationService;
-import com.harvestmanager.broadacre.service.PlantStageService;
-import com.harvestmanager.broadacre.service.SoilService;
-import com.harvestmanager.broadacre.service.SortService;
+import com.harvestmanager.broadacre.service.*;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 import org.springframework.stereotype.Controller;
@@ -20,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 public class SortViewController {
     private SortService sortService;
 
+    private CropTypeService cropTypeService;
+
     @GetMapping
     public String sortView(Model model){
         System.out.println("all the sorts: "+sortService.getSorts().toString());
@@ -30,6 +29,7 @@ public class SortViewController {
     public String createSort(Model model){
         System.out.println("going to create sort html");
         model.addAttribute("sort",new Sort());
+        model.addAttribute("cropTypes",cropTypeService.getCropTypes());
         System.out.println(model.toString());
         return "/sort/createSort";
     }

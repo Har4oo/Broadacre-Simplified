@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -33,6 +34,16 @@ public class SortServiceImplementation implements SortService {
     public Sort updateSort(Sort sort, long id) {
         sort.setSortId(id);
         return sortRepository.save(sort);
+    }
+
+    @Override
+    public List<Sort> getSortByCropTypeId(long id) {
+        List<Sort> sortList = sortRepository.findAll()
+                .stream()
+                .filter(sort -> sort.getCropType().getCropTypeId() == id)
+                .collect(Collectors.toList());
+        System.out.println(sortList);
+        return sortList;
     }
 
     @Override

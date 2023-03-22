@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@ToString
 public class Crop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +33,10 @@ public class Crop {
     private Location location;
 
     @ManyToOne
+    @JoinColumn(nullable = false, name = "cropType_id")
+    private CropType cropType;
+
+    @ManyToOne
     @JoinColumn(nullable = false, name = "sort_id")
     private Sort sort;
 
@@ -46,6 +49,21 @@ public class Crop {
     @JsonIgnore
     @Column(nullable = false)
     private List<Harvest> harvests;
+
+    public Crop(CropDTO crop, Sort sort) {
+        this.sort = sort;
+        this.cropName = crop.getCropName();
+        this.seedlingsNumber = crop.getSeedlingsNumber();
+        this.location = crop.getLocation();
+        this.soil = crop.getSoil();
+        this.plantStage = crop.getPlantStage();
+        this.active = crop.isActive();
+        this.photoUrl = crop.getPhotoUrl();
+        this.cropType = crop.getCropType();
+    }
+
+    public Crop() {
+    }
 
     public long getCropId() {
         return cropId;
@@ -109,6 +127,14 @@ public class Crop {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public CropType getCropType() {
+        return cropType;
+    }
+
+    public void setCropType(CropType cropType) {
+        this.cropType = cropType;
     }
 
     public Sort getSort() {
