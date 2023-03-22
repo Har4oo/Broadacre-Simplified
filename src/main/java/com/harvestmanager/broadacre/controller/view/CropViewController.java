@@ -24,7 +24,6 @@ public class CropViewController {
 
     @GetMapping("/createCrop")
     public String createCrop(Model model) {
-        System.out.println("going to create crop html");
         model.addAttribute("crop", new CropDTO());
         model.addAttribute("soils", soilService.getSoils());
         model.addAttribute("locations", locationService.getLocations());
@@ -57,18 +56,18 @@ public class CropViewController {
 
     @GetMapping("/editCrop/{id}")
     public String editSort(Model model, @PathVariable long id) {
-        System.out.println("crop edit html");
         model.addAttribute("crop", cropService.getCrop(id));
         model.addAttribute("soils", soilService.getSoils());
         model.addAttribute("sorts", sortService.getSorts());
         model.addAttribute("locations", locationService.getLocations());
         model.addAttribute("plantStages", plantStageService.getPlantStages());
+        model.addAttribute("cropTypes", cropTypeService.getCropTypes());
         return "/crop/editCrop";
     }
 
     @PostMapping("/put/updateCrop/{id}")
     public String updateCrop(@PathVariable long id, @ModelAttribute Crop crop) {
-        System.out.println("updating value");
+        System.out.println("Crop full information that is about to be changed: \n"+crop.toString());
         cropService.updateCrop(crop, id);
         return "redirect:/";
     }
