@@ -25,7 +25,7 @@ public class CropTypeViewController {
     public String createCropType(Model model) {
         System.out.println("Attempt to create a new CropType");
         model.addAttribute("cropType",new CropType());
-        return "/cropType/createCropType";
+        return "/croptype/createCropType";
     }
 
     @PostMapping("/post/createCropType")
@@ -37,7 +37,7 @@ public class CropTypeViewController {
     @GetMapping("/editCropType/{id}")
     public String editCropType(Model model, @PathVariable long id){
         model.addAttribute("cropType",cropTypeService.getCropType(id));
-        return "/cropType/editCropType";
+        return "/croptype/editCropType";
     }
 
     @PostMapping("/put/updateCropType/{id}")

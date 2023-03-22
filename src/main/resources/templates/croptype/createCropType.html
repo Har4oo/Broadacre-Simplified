@@ -14,12 +14,12 @@
     <div class="col">
         <form th:action="@{/cropType/post/createCropType}" th:object="${cropType}" method="post">
             <div class="form-group">
-                <input class="form-control" type="text" th:field="*{cropTypeName}" placeholder="Location Name"
+                <input class="form-control" type="text" th:field="*{cropTypeName}" placeholder="Crop Type Name"
                        id="type">
             </div>
             <div class="d-flex flex-row-reverse bd-highlight">
-                <a type="reset" class="btn btn-secondary m-2" href="/location">Cancel</a>
-                <button type="submit" class="btn btn-primary m-2">Save Location</button>
+                <a type="reset" class="btn btn-secondary m-2" href="/cropType">Cancel</a>
+                <button type="submit" class="btn btn-primary m-2">Save Crop Type</button>
             </div>
         </form>
     </div>
