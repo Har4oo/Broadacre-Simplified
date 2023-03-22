@@ -24,6 +24,12 @@ public class SortController {
     public Sort getSort(@PathVariable("id") long id){
         return sortService.getSort(id);
     }
+
+    @GetMapping("/filter/{id}")
+    public List<Sort> getSortByCropTypeId(@PathVariable("id") long id){
+        System.out.println("filtering sorts and crop by id "+id);
+        return sortService.getSortByCropTypeId(id);
+    }
     
     @PostMapping("/createSort")
     public Sort createSort(@RequestBody Sort sort){
