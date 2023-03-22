@@ -44,6 +44,7 @@ public class SortViewController {
     public String editSort(Model model, @PathVariable long id){
         System.out.println("sort edit html");
         model.addAttribute("sort",sortService.getSort(id));
+        model.addAttribute("cropTypes",cropTypeService.getCropTypes());
         return "/sort/editSort";
     }
     @PostMapping("/put/updateSort/{id}")
