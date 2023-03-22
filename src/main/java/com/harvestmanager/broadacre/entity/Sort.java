@@ -12,10 +12,14 @@ public class Sort {
     private long sortId;
     @Column(nullable = false)
     private String sortName;
+
+    @ManyToOne
+    @JoinColumn(nullable = false, name = "cropType_id")
+    private CropType cropType;
     @Column(nullable = false)
     private String origin;
 
-    @Column(nullable = false, length = 1000)
+    @Column(nullable = false, length = 10000)
     private String sortDescription;
 
     @OneToMany(mappedBy = "sort")
@@ -37,6 +41,14 @@ public class Sort {
 
     public void setSortName(String sortName) {
         this.sortName = sortName;
+    }
+
+    public CropType getCropType() {
+        return cropType;
+    }
+
+    public void setCropType(CropType cropType) {
+        this.cropType = cropType;
     }
 
     public String getOrigin() {
